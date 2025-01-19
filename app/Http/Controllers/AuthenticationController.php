@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Participant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -18,28 +19,47 @@ class AuthenticationController extends Controller
     function register(Request $request) {
         $request->validate([
             'name' => 'required',
-            'email' => ['required', 'unique:users'],
-            'password' => 'required',
+            'email' => ['required', 'email', 'unique:participants'],
+            'password' => 'required|min:8',
             'group_name' => 'required',
-            'status' => 'required',
+            'status' => 'required|in:binusian,non-binusian', 
             'wa_number' => 'required',
             'line_id' => 'required',
             'github_id' => 'required',
             'birth_place' => 'required',
-            'birth_date' => 'required',
-            'binusian_flazz_card' => 'required|nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'cv' => 'required|nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'non_binusian_card' => 'required|nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'birth_date' => 'required|date',
+            'cv' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
-
-        User::create([
+    
+       
+        if ($request->status === 'binusian') {
+            $request->validate([
+                'binusian_flazz_card' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+        } elseif ($request->status === 'non-binusian') {
+            $request->validate([
+                'non_binusian_card' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+        }
+    
+        Participant::create([
             'name' => $request->name,
             'email' => $request->email,
-            // 'password' => bcrypt($request->password)
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'group_name' => $request->group_name,
+            'status' => $request->status,
+            'wa_number' => $request->wa_number,
+            'line_id' => $request->line_id,
+            'github_id' => $request->github_id,
+            'birth_place' => $request->birth_place,
+            'birth_date' => $request->birth_date,
+            'cv' => $request->file('cv')->store('uploads', 'public'),
+            'binusian_flazz_card' => $request->file('binusian_flazz_card')?->store('uploads', 'public'),
+            'non_binusian_card' => $request->file('non_binusian_card')?->store('uploads', 'public'),
         ]);
-
+    
         return redirect('/welcome');
+
     }
 
     function getLogin() {
@@ -48,7 +68,7 @@ class AuthenticationController extends Controller
 
     function login(Request $request) {
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
