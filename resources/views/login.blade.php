@@ -19,12 +19,13 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-        <link rel="stylesheet" href="login.css" />
+        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+        <script src="{{ asset('js/login.js') }}"></script>
     </head>
     <body>
         <div class="header">
             <img
-                src="technoscape_logo.png"
+                src="{{ asset('assets/technoscape_logo.png') }}"
                 alt="TechnoScape logo"
                 width="50"
                 height="50"
@@ -36,7 +37,7 @@
                 <h2>
                     Log In
                     <div class="close-button-container">
-                        <img src="close.png" alt="Close">
+                        <img src="{{ asset('assets/technoscape_logo.png') }}" alt="Close">
                     </div>
                 </h2>
             </div>
