@@ -1,0 +1,265 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+html{
+    font-family: "Inter", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(215, 236, 255, 0.8118);
+    height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color:  rgba(215, 236, 255, 0.8118);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+  
+.navbar-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px;
+    font-weight: bold;
+    color: #000;
+}
+  
+.navbar-item a {
+    text-decoration: none;
+    color: inherit;
+}
+  
+.navbar.logo {
+    flex: 0.5;
+    text-align: left;
+}
+  
+.logo img {
+    width: 40px;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.navbar-item.hero {
+    background-color: #F5F4DE;
+    color: #000000;
+}
+
+.navbar-item.about {
+    background-color: #D5E6F5;
+    color: #000000;
+}
+
+.navbar-item.prizes {
+    background-color: #EDFFEA;
+    color: #000000;
+}
+
+.navbar-item.faq {
+    background-color: #E3E3FF;
+    color: #000000;
+}
+
+.navbar-item.login {
+    background-color: #879EB2;
+    color: white;
+}
+  
+/* Hero */
+#hero {
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.hero-header .logo {
+    max-height: 50px;
+}
+
+.hero-header #logo-1{
+    width: 60px;
+    height: auto;
+}
+
+.hero-header #logo-2{
+    width: 40px;
+    height: auto;
+}
+
+.hero-header p{
+    font-weight: bold;
+}
+
+.hero-header .divider {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.hero-content {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+  
+.hero-content::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    background: linear-gradient(
+        to bottom,
+        #FFFCC8 0%, 
+        #E9FDC8 2%, 
+        #E9D7FF 48%, 
+        #FFCCCD 81%, 
+        #D7ECFF 100%
+    );
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.hero-content .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.2rem;
+    font-weight: 900;
+    color: #FFAF7D;
+    text-shadow: 
+    2px 2px 0 black, /* Bayangan di kanan bawah */
+    -2px 2px 0 black, /* Bayangan di kiri bawah */
+    2px -2px 0 black, /* Bayangan di kanan atas */
+    -2px -2px 0 black; /* Bayangan di kiri atas */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-content .title span {
+    font-size: 4.5rem;
+    color: white;
+}
+
+.hero-content .description {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.hero-content .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}  
+
+.hero-content .period {
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 45px;
+    background-color: white;
+    display: inline-block;
+    padding: 5px;
+    padding-inline: 50px;
+}
+
+.hero-content .register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF9248;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 45px;
+    transition: background-color 0.3s;
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content .register-button:hover {
+    background-color: #D97B3F;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Decorations */
+.hero-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-decorations .decoration {
+    position: absolute;
+    opacity: 0.8;
+}
+
+.hero-decorations .star {
+    top: 3%;
+    left: 18%;
+    width: 200px;
+}
+
+.hero-decorations .smile {
+    top: 13%;
+    right: 15%;
+    width: 200px;
+}
+
+.hero-decorations .lefttag {
+    top: -10%;
+    left: 0%;
+    width: 500px;
+    z-index: -2;
+}
+
+.hero-decorations .righttag {
+    top: 0%;
+    right: 0%;
+    width: 500px;
+    z-index: -2;
+}
+
+.hero-decorations .bling {
+    top: 55%;
+    left: 20%;
+    width: 300px;
+}
+
+.hero-decorations .heart {
+    bottom: 5%;
+    right: 25%;
+    width: 200px;
+}
