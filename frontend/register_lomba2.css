@@ -42,14 +42,7 @@ body {
 }
 
 .title-container {
-    background: linear-gradient(
-        to left,
-        #fffcc8,
-        #d4ffc8,
-        #d7ecff,
-        #e9d7ff,
-        #ffcccd
-    );
+    background: linear-gradient(to left, #FFFCC8, #D4FFC8, #D7ECFF, #E9D7FF, #FFCCCD);
     border-radius: 10px;
     text-align: center;
     margin-bottom: 0;
@@ -86,10 +79,6 @@ body {
     padding: 5px;
 }
 
-.close-button-container a {
-    display: inline-flex; 
-}
-
 .content {
     display: flex;
     flex-direction: row;
@@ -101,7 +90,9 @@ body {
 }
 
 .sidebar {
+    /* width: 250px; */
     padding: 20px;
+    /* border-right: 1px solid #ddd; */
 }
 
 .sidebar .step {
@@ -115,13 +106,13 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(75deg, #fffcc8, #d4ffc8);
+    background: linear-gradient(75deg, #FFFCC8, #D4FFC8);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: 800;
-    color: #33bb0e;
+    color: #33BB0E;
     margin-right: 10px;
     z-index: 1;
     box-sizing: border-box;
@@ -129,17 +120,17 @@ body {
 
 .sidebar .step .text {
     font-size: 15px;
-    color: #33bb0e;
+    color: #33BB0E;
     font-weight: 700;
 }
 
 .sidebar .step.inactive .circle {
-    background: linear-gradient(75deg, #e0e0e0, #cbcbcb);
-    color: #a4a4a4;
+    background: linear-gradient(75deg, #E0E0E0, #CBCBCB);
+    color: #A4A4A4;
 }
 
 .sidebar .step.inactive .text {
-    color: #a4a4a4;
+    color: #A4A4A4;
 }
 
 .sidebar .step::after {
@@ -163,12 +154,12 @@ body {
 }
 
 .sidebar .step.completed .circle {
-    background: linear-gradient(75deg, #b8e994, #33bb0e);
+    background: linear-gradient(75deg, #B8E994, #33BB0E);
     color: white;
 }
 
 .sidebar .step.completed .text {
-    color: #33bb0e;
+    color: #33BB0E;
 }
 
 .sidebar .step.completed + .step::after {
@@ -178,10 +169,10 @@ body {
 .form-container {
     width: 70%;
     padding: 20px;
-    background-color: #fffcc8;
+    background-color: #FFFCC8;
     border-radius: 15px;
     margin-left: 20px;
-    border: 1px solid black;
+    padding-top: 0;
 }
 
 .form-container h2 {
@@ -190,149 +181,11 @@ body {
     margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type="confirm-password"] {
-    width: calc(100% - 13px);
-    padding: 7px;
-    border: 1px solid #000000;
-    border-radius: 20px;
-    font-size: 13px;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
-    background-color: #ffcccd;
-}
-
-.form-group .requirements ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.form-group .requirements li {
-    font-size: 13px;
-    color: #ff0000;
-    margin-top: 5px;
-}
-
-.form-group .requirements li.valid {
-    font-size: 13px;
-    color: #00cc44;
-    margin-top: 5px;
-}
-
-.form-group .status {
-    display: flex;
-    align-items: flex-start;
-}
-
-.form-group .status input {
-    margin-top: 5px;
-    margin-right: 10px;
-}
-
-.form-group .status label {
-    margin-right: 20px;
-}
-
-.input-container {
-    position: relative;
-    width: 100%;
-}
-
-.input-container input {
-    width: 100%;
-    padding-right: 40px; 
-    box-sizing: border-box;
-}
-
-.password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-.password-container input {
-    width: 100%;
-    padding-right: 40px;
-}
-.password-container button {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.toggle-password {
-    position: absolute;
-    right: 50px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.toggle-password i {
-    color: #000;
-}
-
-.form-group .next-button {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.next-button button {
-    font-weight: 800;
-    padding: 10px 20px;
-    background-color: #d7ecff;
-    color: black;
-    border: 1px solid black;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-family: "Montserrat", sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
-}
-
-.circle-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 30px;
-    border: 1px solid black;
-    margin-left: 10px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.next-button button:hover {
-    background-color: #95BEE1;
-    border-color: #95BEE1;
-}
-
-.next-button button:hover .circle-icon {
-    background-color: #95BEE1;
-    border-color: #95BEE1;
-}
-
 .form-row {
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .form-row .form-group {
@@ -344,50 +197,154 @@ body {
     margin-right: 0;
 }
 
-#toast-container {
-    position: fixed;
-    top: 10px; 
-    right: 10px;
-    z-index: 1000; 
+.form-group {
+    margin-bottom: 15px;
 }
 
-.toast {
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: calc(100% - 13px);
+    padding: 7px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-size: 13px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form-group input[type="full-name"] {
+    background-color: #FFCCCD;
+}
+
+.form-group input[type="github-id"] {
+    background-color: #FFCE48;
+}
+
+.form-group input[type="email"] {
+    background-color: #D4FFC8;
+}
+
+.form-group input[type="birth-place"] {
+    background-color: #D7ECFF;
+}
+
+.form-group input[type="no-wa"] {
+    background-color: #FFAF7D;
+}
+
+.form-group input[type="date"] {
+    background-color: #E9D7FF;
+}
+
+.form-group input[type="line-id"] {
+    background-color: #FF4848;
+}
+
+.form-group .status input {
+    margin-right: 10px;
+}
+
+.form-group .status label {
+    margin-right: 20px;
+}
+
+.back-button,
+.next-button {
+    display: table-cell;
+    margin-right: 5px;
+    align-content: center;
+}
+
+.next-button button {
+    font-weight: 800;
+    padding: 0 10px 0 20px;
+    background-color: #D7ECFF;
+    color: black;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    background-color: #ffe5e5;
-    color: #d32f2f;
-    border: 1px solid #d32f2f;
-    padding: 10px 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    margin-bottom: 10px; /* Jarak antar toast */
-    animation: fadein 0.5s, fadeout 0.5s 3s;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
 }
 
-.toast .icon {
-    margin-right: 10px;
+.circle-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    color: black;
+    border-radius: 30px;
+    border: 1.5px solid black;
+    margin: 10px;
     font-size: 18px;
+    transition: all 0.3s ease;
 }
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.circle-icon .back-button {
+    margin-left: 100px;
+}
+  
+.next-button button:hover {
+    background-color: #4CAF50; 
+    border-color: #4CAF50; 
+    color: white; 
 }
 
-@keyframes fadeout {
-    from {
-        opacity: 1;
-        transform: translateY(0);
+.next-button button:hover .circle-icon {
+    background-color: #4CAF50; 
+    border-color: #4CAF50; 
+    color: white; 
+}
+
+
+.back-button button {
+    font-weight: 800;
+    padding: 0 20px 0 10px;
+    background-color: #FFCCCD; 
+    color: black;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.back-button button:hover {
+    background-color: #FF787A; /* Warna saat hover */
+    border-color: #FF787A;
+    color: white;
+}
+
+.back-button button:hover .circle-icon {
+    background-color: #FF787A;
+    border-color: #FF787A;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
     }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-left: 0;
     }
 }
