@@ -20,7 +20,6 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
         <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-        <script src="{{ asset('js/login.js') }}"></script>
     </head>
     <body>
         <div class="header">
@@ -43,6 +42,7 @@
             </div>
             <div class="content">
                 <form action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <div class="form-container">
                             <div class="form-row">
@@ -56,9 +56,9 @@
                                         name="name"
                                         placeholder="Enter group name"
                                     />
-                                    @error('email')
-                                        <p>Email is not found!</p>
-                                    @enderror
+                                    @if ($errors->has('login_error'))
+                                        <p>{{ $errors->first('login_error') }}</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-row">
@@ -89,7 +89,7 @@
                 </form>
             </div>
         </div>
-        <script src="login.js"></script>
+        <script src="{{ asset('js/login.js') }}"></script>
     </body>
 </html>
 

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Group extends Model
 {
     protected $fillable = [
-        "group_name"
+        "group_name",
+        "password"
     ];
 
     public function participants(): HasMany {

@@ -12,7 +12,6 @@ class Participant extends Model
     protected $fillable = [
         "name",
         "email",
-        "password",
         "group_name",
         "status",
         "wa_number",

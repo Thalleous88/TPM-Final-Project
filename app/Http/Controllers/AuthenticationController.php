@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\Participant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,21 +75,21 @@ class AuthenticationController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'name' => 'required',
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            Cookie::queue('email', Auth::user()->email);
-            Log::info(Auth::user()->email . ' logged in.');
+        $group = Group::where('group_name', $request->input('name'))->first();
 
+        if ($group && Hash::check($request->input('password'), $group->password)) {
+            $request->session()->regenerate();
+            Cookie::queue('group_id', $group->id);
             return redirect('/');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            'login_error' => 'Group with this name was not found on our records.',
+        ])->onlyInput('name');
     }
 
     // Handle logout logic
