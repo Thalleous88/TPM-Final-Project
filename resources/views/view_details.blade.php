@@ -19,7 +19,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-        <link rel="stylesheet" href="admin_participant.css" />
+        <link rel="stylesheet" href="view_details.css" />
     </head>
     <body>
         <div class="header">
@@ -34,37 +34,26 @@
         <div class="container">
             <div class="title-container">
                 <h2>
-                    ADMIN PANEL
+                    TEAMS DETAIL
                     <div class="close-button-container">
-                        <img src="close.png" alt="Close" />
+                        <a href="admin_participant.html">
+                            <img src="close.png" alt="Close" />
+                        </a>
                     </div>
                 </h2>
             </div>
             <div class="content">
-                <div class="search-bar">
-                    <div class="search-wrapper">
-                        <input type="text" id="group-search" placeholder="Group's Name" />
-                        <button id="filter-btn">
-                            <span class="material-icons">search</span>
-                        </button>
+                <div class="form-container">
+                    <h3 id="group-name">Group Name</h3>
+                    <div id="member-list">
+                        <!-- nama anggota akan masuk di sini -->
                     </div>
-                    <div class="sort-container">
-                        <span class="material-icons sort-icon" id="sort-name" title="Sort by Name">
-                            sort_by_alpha
-                        </span>
-                        <span class="material-icons sort-icon" id="sort-time" title="Sort by Registration Time">
-                            access_time
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="group-container" id="group-container">
-                    <!-- dynamic card akan masuk di sini -->
+                    <p id="registration-time"></p>
                 </div>
             </div>
         </div>
 
-        <script type="module" src="admin_participant.js"></script>
-        <script src="admin_participant.js"></script>
+        <script type="module" src="view_details.js"></script>
+        <script src="view_details.js"></script>
     </body>
 </html>

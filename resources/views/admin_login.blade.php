@@ -65,10 +65,6 @@
                                 id="password"
                                 placeholder="Enter password"
                             />
-                            <div
-                                class="requirements"
-                                id="password-requirements"
-                            ></div>
                         </div>
                     </div>
                 </div>
