@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Group Registration</title>
+        <title>ADMIN PANEL REGISTER</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,7 +19,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-        <link rel="stylesheet" href="admin_login.css" />
+        <link rel="stylesheet" href="admin_register.css" />
     </head>
     <body>
         <div class="header">
@@ -36,47 +36,44 @@
                 <h2>
                     ADMIN PANEL
                     <div class="close-button-container">
-                        <img src="close.png" alt="Close">
+                        <span class="material-icons">close</span>
                     </div>
                 </h2>
             </div>
             <div class="content">
                 <div class="form-group">
-                <div class="form-container">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="group-name"
-                                ><i class="fas fa-users"></i> Group Name</label
-                            >
-                            <input
-                                type="text"
-                                id="group-name"
-                                placeholder="Enter group name"
-                            />
+                    <div class="form-container">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="group-name"
+                                    ><i class="fas fa-users"></i> Group
+                                    Name</label
+                                >
+                                <input
+                                    type="group-name"
+                                    id="group-name"
+                                    placeholder="Enter group name"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password"
+                                    ><i class="fas fa-lock"></i> Password</label
+                                >
+                                <input
+                                    type="password"
+                                    id="password"
+                                    placeholder="Enter password"
+                                />
+                            </div>
+                        </div>
+                        <div class="register-button">
+                            <button>
+                                <a href="admin_login.html">REGISTER</a>
+                            </button>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="password"
-                                ><i class="fas fa-lock"></i> Password</label
-                            >
-                            <input
-                                type="password"
-                                id="password"
-                                placeholder="Enter password"
-                            />
-                        </div>
-                    </div>
-                </div>
-                    <div class="login-button">
-                        <button>
-                            LOG IN
-                        </button>
-                    </div>
-                    <div class="footer">
-                        Don't have an admin account? <a href="admin_register.html">Make Account</a>
-                      </div>
-
                 </div>
             </div>
         </div>

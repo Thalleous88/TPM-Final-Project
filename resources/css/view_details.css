@@ -1,0 +1,154 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #cce7ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
+.container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img {
+    margin-top: 13px;
+    width: 60px;
+    height: 50px;
+}
+
+.header h1 {
+    font-size: 30px;
+    font-style: italic;
+}
+
+.header h1 span {
+    font-weight: 800;
+}
+
+.title-container {
+    background: linear-gradient(
+        to left,
+        #fffcc8,
+        #d4ffc8,
+        #d7ecff,
+        #e9d7ff,
+        #ffcccd
+    );
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 25px;
+    position: relative;
+}
+
+.title-container h2 {
+    font-weight: 800;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 10px 10px 5px 5px;
+}
+
+.close-button-container {
+    display: flex;
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    border: 1.5px solid black; 
+    border-radius: 10px; 
+    padding: 4px; 
+    background-color: white;
+    cursor: pointer;
+}
+
+.close-button-container img {
+    width: 25px; 
+    height: 25px;
+    object-fit: cover; 
+    border: 1px dashed black; 
+    padding: 5px; 
+
+}
+.close-button-container a {
+    display: inline-flex; 
+}
+
+.content {
+    flex-direction: row;
+    border: 0.25px dashed black;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    background: #ffffff;
+}
+
+.form-container {
+    background: #FFFCC8;
+    border: 1px solid black;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin: 0 auto;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Member List Styling */
+.member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.member-list .member-item input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.member-item .icon {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.member-item .member-name {
+    font-size: 1rem; 
+}
