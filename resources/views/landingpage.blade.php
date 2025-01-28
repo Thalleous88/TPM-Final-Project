@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechnoScape</title>
     
-    <link rel="stylesheet" href="{{ asset('/css/landingpage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/landingpage.css') }}">
     <script src="{{ asset('js/landingpage.js') }}"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="navbar-item about"><a href="#about">About</a></div>
         <div class="navbar-item prizes"><a href="#champion-prizes">Champion Prizes</a></div>
         <div class="navbar-item faq"><a href="#faq">FAQ</a></div>
-        <div class="navbar-item login"><a href="login.html">Log In</a></div>
+        <div class="navbar-item login"><a href="{{ route('login') }}">Log In</a></div>
       </nav>
 
     <section id="hero">
@@ -39,7 +39,7 @@
                 <div class="period">
                     <p>PERIOD TIME</p>
                 </div>
-                <a href="register.html" class="register-button">REGISTER HERE!</a>
+                <a href="{{ route('register') }}" class="register-button">REGISTER HERE!</a>
             </div>
         </div>
   
