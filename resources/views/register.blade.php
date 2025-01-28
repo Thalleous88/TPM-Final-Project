@@ -21,6 +21,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="stylesheet" href="{{ asset('css/register_lomba.css') }}">
+    <script src="{{ asset('js/register_lomba1.js') }}"></script>
   </head>
   <body>
     <div class="header">
@@ -45,6 +46,11 @@
             <div class="line"></div>
             <div class="circle">2</div>
             <div class="text">Leader Information</div>
+          </div>
+          <div class="step inactive" id="step3">
+              <div class="line"></div>
+              <div class="circle">3</div>
+              <div class="text">Member Information</div>
           </div>
           <div class="step inactive">
             <div class="line"></div>
