@@ -1,12 +1,15 @@
-body {
+* {
     font-family: 'Montserrat', sans-serif;
+}
+
+body {
     background-color: #cce7ff;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 115vh;
+    height: 100vh;
     flex-direction: column;
 }
 

@@ -18,7 +18,7 @@
         <div class="navbar-item about"><a href="#about">About</a></div>
         <div class="navbar-item prizes"><a href="#champion-prizes">Champion Prizes</a></div>
         <div class="navbar-item faq"><a href="#faq">FAQ</a></div>
-        <div class="navbar-item login"><a href="login.html">Log In</a></div>
+        <div class="navbar-item login"><a href="{{ route('getLogin') }}">Log In</a></div>
       </nav>
 
     <section id="hero">
@@ -39,7 +39,7 @@
                 <div class="period">
                     <p>PERIOD TIME</p>
                 </div>
-                <a href="register.html" class="register-button">REGISTER HERE!</a>
+                <a href="{{ route('getRegister') }}" class="register-button">REGISTER HERE!</a>
             </div>
         </div>
   

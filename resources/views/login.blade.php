@@ -79,7 +79,7 @@
                         </button>
                     </div>
                     <div class="footer">
-                        Don't have an account? <a href="register_lomba1.html">Sign Up</a>
+                        Don't have an account? <a href="{{ route('getRegister') }}">Sign Up</a>
                       </div>
 
                 </div>
@@ -89,10 +89,6 @@
         <script src="login.js"></script>
     </body>
 </html>
-
-
-
-
 
 
 <!-- <!DOCTYPE html>

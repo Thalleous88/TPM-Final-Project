@@ -1,5 +1,9 @@
-body {
+/* Global fonts */
+* {
     font-family: "Montserrat", sans-serif;
+}
+
+body {
     background-color: #cce7ff;
     margin: 0;
     padding: 0;
