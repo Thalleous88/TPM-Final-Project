@@ -23,7 +23,7 @@
     <body>
         <div class="header">
             <img
-                src="technoscape_logo.png"
+                src="assets/technoscape_logo.png"
                 alt="TechnoScape logo"
                 width="50"
                 height="50"
@@ -34,9 +34,11 @@
             <div class="title-container">
                 <h2>
                     Group Registration
-                    <div class="close-button-container">
-                        <span class="material-icons">close</span>
-                    </div>
+                  <div class="close-button-container">
+                    <a href="landingpage.html">
+                        <img src="assets/close.png" alt="Close" />
+                    </a>
+                </div>
                 </h2>
             </div>
             <div class="content">
@@ -64,99 +66,117 @@
                     </div>
                 </div>
                 <div class="form-container">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="group-name">
-                                <i class="fas fa-users"></i> Group Name
-                            </label>
-                            <input
-                                type="text"
-                                id="group-name"
-                                placeholder="Enter group name"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="status">
-                                <i class="fas fa-graduation-cap"></i> Status
-                            </label>
-                            <div class="status">
+                    <form id="registration-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="group-name">
+                                    <i class="fas fa-users"></i> Group Name
+                                </label>
                                 <input
-                                    type="radio"
-                                    id="binusian"
-                                    name="status"
-                                    value="binusian"
+                                    type="text"
+                                    id="group-name"
+                                    placeholder="Enter group name"
                                 />
-                                <label for="binusian">Binusian</label>
-                                <input
-                                    type="radio"
-                                    id="non-binusian"
-                                    name="status"
-                                    value="non-binusian"
-                                />
-                                <label for="non-binusian">Non-binusian</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">
+                                    <i class="fas fa-graduation-cap"></i> Status
+                                </label>
+                                <div class="status">
+                                    <input
+                                        type="radio"
+                                        id="binusian"
+                                        name="status"
+                                        value="binusian"
+                                    />
+                                    <label for="binusian">Binusian</label>
+                                    <input
+                                        type="radio"
+                                        id="non-binusian"
+                                        name="status"
+                                        value="non-binusian"
+                                    />
+                                    <label for="non-binusian"
+                                        >Non-binusian</label
+                                    >
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="password">
-                                <i class="fas fa-lock"></i> Password
-                            </label>
-                            <div class="password-container">
-                                <input
-                                    type="password"
-                                    id="password"
-                                    placeholder="Enter password"
-                                />
-                                <button
-                                    type="button"
-                                    id="toggle-password"
-                                    class="toggle-password"
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">
+                                    <i class="fas fa-lock"></i> Password
+                                </label>
+                                <div class="password-container">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        placeholder="Enter password"
+                                    />
+                                    <button
+                                        type="button"
+                                        id="toggle-password"
+                                        class="toggle-password"
+                                    >
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="requirements"
+                                    id="password-requirements"
                                 >
-                                    <i class="fas fa-eye"></i>
+                                    <ul>
+                                        <li id="length">
+                                            *Minimum length of 8 characters
+                                        </li>
+                                        <li id="uppercase">
+                                            *Must include an uppercase letter
+                                        </li>
+                                        <li id="lowercase">
+                                            *Must include a lowercase letter
+                                        </li>
+                                        <li id="number">
+                                            *Must include a number
+                                        </li>
+                                        <li id="symbol">
+                                            *Must include a symbol
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">
+                                    <i class="fas fa-key"></i> Confirm Password
+                                </label>
+                                <div class="password-container">
+                                    <input
+                                        type="confirm-password"
+                                        id="confirm-password"
+                                        class="confirm-password"
+                                        placeholder="Re-enter password"
+                                    />
+                                    <button
+                                        type="button"
+                                        id="toggle-confirm-password"
+                                        class="toggle-confirm-password"
+                                    >
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="next-button">
+                                <button>
+                                    NEXT
+                                    <span class="material-icons circle-icon">
+                                        arrow_forward
+                                    </span>
                                 </button>
                             </div>
-                            <div class="requirements" id="password-requirements">
-                                <ul>
-                                    <li id="length">*Minimum length of 8 characters</li>
-                                    <li id="uppercase">*Must include an uppercase letter</li>
-                                    <li id="lowercase">*Must include a lowercase letter</li>
-                                    <li id="number">*Must include a number</li>
-                                    <li id="symbol">*Must include a symbol</li>
-                                </ul>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="confirm-password">
-                                <i class="fas fa-key"></i> Confirm Password
-                            </label>
-                            <div class="password-container">
-                                <input
-                                    type="confirm-password"
-                                    id="confirm-password"
-                                    class="confirm-password"
-                                    placeholder="Re-enter password"
-                                />
-                                <button
-                                    type="button"
-                                    id="toggle-confirm-password"
-                                    class="toggle-confirm-password"
-                                >
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="next-button">
-                            <button>
-                                NEXT
-                                <span class="material-icons circle-icon">
-                                    arrow_forward
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+                    </form>
+                    <div id="toast-container"></div>
                 </div>
             </div>
         </div>

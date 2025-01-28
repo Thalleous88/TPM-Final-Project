@@ -1,16 +1,15 @@
+const form = document.getElementById("registration-form");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirm-password");
 const togglePasswordButton = document.getElementById("toggle-password");
-const toggleConfirmPasswordButton = document.getElementById(
-    "toggle-confirm-password"
-);
+const toggleConfirmPasswordButton = document.getElementById("toggle-confirm-password");
 const lengthReq = document.getElementById("length");
 const uppercaseReq = document.getElementById("uppercase");
 const lowercaseReq = document.getElementById("lowercase");
 const numberReq = document.getElementById("number");
 const symbolReq = document.getElementById("symbol");
 const nextButton = document.querySelector(".next-button button");
-const binusianStatusInputs = document.getElementsByName("status"); 
+const binusianStatusInputs = document.getElementsByName("status");
 
 // fitur show/hide password
 function togglePasswordVisibility(input, button) {
@@ -27,7 +26,7 @@ function validatePassword(password) {
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
     const hasNumber = /\d/.test(password);
-    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>_]/.test(password);
 
     updateRequirement(lengthReq, hasLength);
     updateRequirement(uppercaseReq, hasUppercase);
@@ -46,36 +45,45 @@ function updateRequirement(element, isValid) {
 
 // validasi input
 function validateForm() {
-    // group name
-    const groupNameInput = document.getElementById("group-name");
-    if (!groupNameInput.value.trim()) {
-        errors.push("Group Name is required.");
-    }
+  const errors = [];
+  
+  // group name
+  const groupNameInput = document.getElementById("group-name");
+  if (!groupNameInput.value.trim()) {
+      showToast("Group Name cannot be empty");
+      errors.push("Group Name is required.");
+  }
 
-    // status
-    const isStatusSelected = Array.from(binusianStatusInputs).some(
-        (input) => input.checked
-    );
-    if (!isStatusSelected) {
-        errors.push("Status is required.");
-    }
+  // status
+  const isStatusSelected = Array.from(binusianStatusInputs).some(
+      (input) => input.checked
+  );
+  if (!isStatusSelected) {
+      showToast("Status must be selected");
+      errors.push("Status is required.");
+  }
 
-    // password
-    if (!passwordInput.value.trim()) {
-        errors.push("Password is required.");
-    } else if (!validatePassword(passwordInput.value)) {
-        errors.push("Password does not meet the requirements.");
-    }
+  // password
+  if (!passwordInput.value.trim()) {
+      showToast("Password cannot be empty");
+      errors.push("Password is required.");
+  } else if (!validatePassword(passwordInput.value)) {
+      showToast("Password does not meet the requirements");
+      errors.push("Password does not meet the requirements.");
+  }
 
-    // confirm password
-    if (!confirmPasswordInput.value.trim()) {
-        errors.push("Confirm Password is required.");
-    } else if (passwordInput.value !== confirmPasswordInput.value) {
-        errors.push("Passwords do not match.");
-    }
+  // confirm password
+  if (!confirmPasswordInput.value.trim()) {
+      showToast("Confirm Password cannot be empty");
+      errors.push("Confirm Password is required.");
+  } else if (passwordInput.value !== confirmPasswordInput.value) {
+      showToast("Passwords do not match");
+      errors.push("Passwords do not match.");
+  }
 
-    return true;
+  return errors.length === 0;
 }
+
 
 // event listener toggle password
 togglePasswordButton.addEventListener("click", () => {
@@ -86,15 +94,36 @@ toggleConfirmPasswordButton.addEventListener("click", () => {
     togglePasswordVisibility(confirmPasswordInput, toggleConfirmPasswordButton);
 });
 
-// event listener validasi password 
+// event listener validasi password
 passwordInput.addEventListener("input", () => {
     validatePassword(passwordInput.value);
 });
 
-// event listener tombol next
 nextButton.addEventListener("click", (e) => {
-    e.preventDefault(); 
-    if (validateForm()) {
-        window.location.href = "register_lomba2.html";
-    }
+  e.preventDefault();
+  if (form.checkValidity() && validateForm()) {
+      window.location.href = "register_lomba2.html";
+  } else {
+      form.reportValidity(); 
+  }
 });
+
+function showToast(message) {
+  const toastContainer = document.getElementById("toast-container");
+
+  // elemen toast
+  const toast = document.createElement("div");
+  toast.className = "toast";
+
+  toast.innerHTML = `
+      <span class="icon">❗</span>
+      <span>${message}</span>
+  `;
+
+  toastContainer.appendChild(toast);
+
+  setTimeout(() => {
+      toast.remove();
+  }, 3500);
+}
+

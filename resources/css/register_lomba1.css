@@ -86,6 +86,10 @@ body {
     padding: 5px;
 }
 
+.close-button-container a {
+    display: inline-flex; 
+}
+
 .content {
     display: flex;
     flex-direction: row;
@@ -97,9 +101,7 @@ body {
 }
 
 .sidebar {
-    /* width: 250px; */
     padding: 20px;
-    /* border-right: 1px solid #ddd; */
 }
 
 .sidebar .step {
@@ -210,18 +212,6 @@ body {
     background-color: #ffcccd;
 }
 
-/* .form-group input[type="text"] {
-    background-color: #ffcccd;
-}
-
-.form-group input[type="password"] {
-    background-color: #fff699;
-} */
-
-/* .form-group .confirm-password {
-    background-color: #ff787a;
-} */
-
 .form-group .requirements ul {
     list-style-type: none;
     padding: 0;
@@ -253,7 +243,6 @@ body {
     margin-right: 20px;
 }
 
-
 .input-container {
     position: relative;
     width: 100%;
@@ -261,11 +250,9 @@ body {
 
 .input-container input {
     width: 100%;
-    padding-right: 40px; /* Ruang untuk tombol */
+    padding-right: 40px; 
     box-sizing: border-box;
 }
-
-
 
 .password-container {
     position: relative;
@@ -325,25 +312,21 @@ body {
     align-items: center;
     width: 20px;
     height: 20px;
-    background-color: white;
-    color: black;
     border-radius: 30px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-left: 10px;
     font-size: 18px;
     transition: all 0.3s ease;
 }
 
 .next-button button:hover {
-    background-color: #4caf50;
-    border-color: #4caf50;
-    color: white;
+    background-color: #95BEE1;
+    border-color: #95BEE1;
 }
 
 .next-button button:hover .circle-icon {
-    background-color: #4caf50;
-    border-color: #4caf50;
-    color: white;
+    background-color: #95BEE1;
+    border-color: #95BEE1;
 }
 
 .form-row {
@@ -361,19 +344,50 @@ body {
     margin-right: 0;
 }
 
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
+#toast-container {
+    position: fixed;
+    top: 10px; 
+    right: 10px;
+    z-index: 1000; 
+}
 
-    .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-    }
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: #ffe5e5;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    margin-bottom: 10px; /* Jarak antar toast */
+    animation: fadein 0.5s, fadeout 0.5s 3s;
+}
 
-    .form-container {
-        width: 100%;
-        margin-left: 0;
+.toast .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 }
