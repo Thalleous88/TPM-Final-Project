@@ -104,7 +104,7 @@ nextButton.addEventListener("click", (e) => {
   if (form.checkValidity() && validateForm()) {
       window.location.href = "register_lomba2.html";
   } else {
-      form.reportValidity(); // Menampilkan pesan error HTML5
+      form.reportValidity(); 
   }
 });
 
@@ -121,12 +121,10 @@ function showToast(message) {
       <span>${message}</span>
   `;
 
-  // Tambahkan toast ke kontainer
   toastContainer.appendChild(toast);
 
-  // Hapus toast setelah beberapa detik
   setTimeout(() => {
       toast.remove();
-  }, 3500); // 3.5 detik (fadeout + waktu tampilan)
+  }, 3500); 
 }
 
