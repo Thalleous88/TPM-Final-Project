@@ -62,6 +62,16 @@
                     <!-- dynamic card akan masuk di sini -->
                 </div>
             </div>
+            <div id="delete-modal" class="modal">
+                <div class="modal-content">
+                    <img src="warning.png" alt="Warning Icon" class="warning-icon">
+                    <h2>Are you sure you want to delete?</h2>
+                    <div class="modal-buttons">
+                        <button id="cancel-delete" class="btn-cancel">No</button>
+                        <button id="confirm-delete" class="btn-confirm">Yes</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script type="module" src="admin_participant.js"></script>
