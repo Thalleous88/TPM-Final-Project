@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Group Registration</title>
+        <title>Group Login</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -42,50 +42,53 @@
                 </h2>
             </div>
             <div class="content">
-                <div class="form-group">
-                <div class="form-container">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="group-name"
-                                ><i class="fas fa-users"></i> Group Name</label
-                            >
-                            <input
-                                type="text"
-                                id="group-name"
-                                placeholder="Enter group name"
-                            />
+                <form action="{{ route('login') }}" method="POST">
+                    <div class="form-group">
+                        <div class="form-container">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name"
+                                        ><i class="fas fa-users"></i> Group Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="group-name"
+                                        name="name"
+                                        placeholder="Enter group name"
+                                    />
+                                    @error('email')
+                                        <p>Email is not found!</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password"
+                                        ><i class="fas fa-lock"></i> Password</label
+                                    >
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Enter password"
+                                    />
+                                    <div
+                                        class="requirements"
+                                        id="password-requirements"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-button">
+                            <button type="submit">LOG IN</button>
+                        </div>
+                        <div class="footer">
+                                Don't have an account? <a href="{{ route('getRegister') }}">Sign Up</a>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="password"
-                                ><i class="fas fa-lock"></i> Password</label
-                            >
-                            <input
-                                type="password"
-                                id="password"
-                                placeholder="Enter password"
-                            />
-                            <div
-                                class="requirements"
-                                id="password-requirements"
-                            ></div>
-                        </div>
-                    </div>
-                </div>
-                    <div class="login-button">
-                        <button>
-                            <a href="dashboard.html">LOG IN</a>
-                        </button>
-                    </div>
-                    <div class="footer">
-                        Don't have an account? <a href="{{ route('getRegister') }}">Sign Up</a>
-                      </div>
-
-                </div>
+                </form>
             </div>
         </div>
-
         <script src="login.js"></script>
     </body>
 </html>

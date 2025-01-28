@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('participant', function (Blueprint $table) {
+        Schema::create('participants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('group_name');
+            $table->foreignId('group_id')->references('id')->on('groups')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('status');
             $table->string('wa_number');
             $table->string('line_id');
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('binusian_flazz_card')->nullable();
             $table->string('cv')->nullable();
             $table->string('non_binusian_card')->nullable();
+            $table->boolean('is_leader');
             $table->timestamps();
         });
     }

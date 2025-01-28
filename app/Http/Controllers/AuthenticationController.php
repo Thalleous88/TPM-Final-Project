@@ -83,7 +83,7 @@ class AuthenticationController extends Controller
             Cookie::queue('email', Auth::user()->email);
             Log::info(Auth::user()->email . ' logged in.');
 
-            return redirect('/welcome');
+            return redirect('/');
         }
 
         return back()->withErrors([
