@@ -70,6 +70,7 @@ body {
     background-color: white;
     cursor: pointer;
 }
+
 .close-button-container img {
     width: 25px;
     height: 25px;
@@ -141,8 +142,8 @@ body {
     top: 150%;
     transform: translateY(-50%);
     width: 4px;
-    height: calc(80% + 0px); 
-    background-color: #ccc; 
+    height: calc(80% + 0px);
+    background-color: #ccc;
     z-index: 0;
 }
 
@@ -171,7 +172,6 @@ body {
     width: 70%;
     padding: 20px;
     background-color: #FFFCC8;
-    border: 1px solid black;
     border-radius: 15px;
     margin-left: 20px;
     padding-top: 0;
@@ -184,74 +184,74 @@ body {
 }
 
 .form-row {
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: nowrap;
+    align-items: center;
 }
 
-.upload-section {
-    border-radius: 10px;
+.form-row .form-group {
+    flex: 1;
+    margin-right: 20px;
 }
 
-.upload-section h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.form-row .form-group:last-child {
+    margin-right: 0;
 }
 
-.upload-box {
-    border: 1px dashed black;
-    border-radius: 10px;
-    padding: 10px 30px;
-    text-align: center;
-    margin-bottom: 10px;
-    transition: background-color 0.3s, border-color 0.3s;
-    cursor: pointer;
-    background-color: #FFFEEA;
-    height: 50px;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.upload-box:hover {
-    background-color: #e8f8ff;
-    border-color: #0072D0;
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
-.upload-box i {
-    color: #0072D0;
-    margin-bottom: 10px;
+.form-group input {
+    width: calc(100% - 13px);
+    padding: 7px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-size: 13px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-.upload-box p {
-    font-size: 14px;
-    margin: 0;
+.form-group input[type="full-name"] {
+    background-color: #FFCCCD;
 }
 
-.upload-box a {
-    color: #0072D0;
-    text-decoration: none;
-    font-weight: bold;
+.form-group input[type="github-id"] {
+    background-color: #FFCE48;
 }
 
-.upload-box a:hover {
-    text-decoration: underline;
+.form-group input[type="email"] {
+    background-color: #D4FFC8;
 }
 
-.upload-box .upload-instruction{
-    color: #0072D0;
-    margin: 0;
+.form-group input[type="birth-place"] {
+    background-color: #D7ECFF;
 }
 
-.upload-section .file-type-note {
-    color: #DA4444;
-    font-size: 12px;
-    margin: 5px 0;
+.form-group input[type="no-wa"] {
+    background-color: #FFAF7D;
 }
 
-.button-group {
-    display: flex;
-    justify-content: flex-end; 
-    gap: 15px; 
+.form-group input[type="date"] {
+    background-color: #E9D7FF;
+}
+
+.form-group input[type="line-id"] {
+    background-color: #FF4848;
+}
+
+.form-group .status input {
+    margin-right: 10px;
+}
+
+.form-group .status label {
+    margin-right: 20px;
 }
 
 .back-button,
@@ -259,8 +259,6 @@ body {
     display: table-cell;
     margin-right: 5px;
     align-content: center;
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 20px
 }
 
 .next-button button {
@@ -297,22 +295,20 @@ body {
 }
   
 .next-button button:hover {
-    background-color: #4CAF50; 
-    border-color: #4CAF50; 
-    color: white; 
+    background-color: #95BEE1;
+    border-color: #95BEE1;
 }
 
 .next-button button:hover .circle-icon {
-    background-color: #4CAF50; 
-    border-color: #4CAF50; 
-    color: white; 
+    background-color: #95BEE1;
+    border-color: #95BEE1;
 }
 
 
 .back-button button {
     font-weight: 800;
     padding: 0 20px 0 10px;
-    background-color: #FFFCC8; 
+    background-color: #FFCCCD; 
     color: black;
     border: 1px solid black;
     border-radius: 30px;
@@ -325,14 +321,61 @@ body {
 }
 
 .back-button button:hover {
-    background-color: #FFCE48;
-    border-color: #FFCE48;
+    background-color: #FF787A; /* Warna saat hover */
+    border-color: #FF787A;
     color: white;
 }
 
 .back-button button:hover .circle-icon {
-    background-color: #FFCE48;
-    border-color: #FFCE48;
+    background-color: #FF787A;
+    border-color: #FF787A;
     color: white;
 }
 
+#toast-container {
+    position: fixed;
+    top: 10px; 
+    right: 10px;
+    z-index: 1000; 
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: #ffe5e5;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    margin-bottom: 10px; /* Jarak antar toast */
+    animation: fadein 0.5s, fadeout 0.5s 3s;
+}
+
+.toast .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
