@@ -44,7 +44,7 @@
             </div>
             <div class="content">
                 <div class="sidebar">
-                    <div class="step inactive" id="step1">
+                    <div class="step active" id="step1">
                         <div class="circle">1</div>
                         <div class="text">Group Information</div>
                     </div>

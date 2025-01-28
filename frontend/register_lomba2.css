@@ -259,6 +259,8 @@ body {
     display: table-cell;
     margin-right: 5px;
     align-content: center;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 20px
 }
 
 .next-button button {
@@ -307,7 +309,7 @@ body {
 .back-button button {
     font-weight: 800;
     padding: 0 20px 0 10px;
-    background-color: #FFCCCD; 
+    background-color: #FFFCC8; 
     color: black;
     border: 1px solid black;
     border-radius: 30px;
@@ -320,15 +322,13 @@ body {
 }
 
 .back-button button:hover {
-    background-color: #FF787A; /* Warna saat hover */
-    border-color: #FF787A;
-    color: white;
+    background-color: #FFCE48;
+    border-color: #FFCE48;
 }
 
 .back-button button:hover .circle-icon {
-    background-color: #FF787A;
-    border-color: #FF787A;
-    color: white;
+    background-color: #FFCE48;
+    border-color: #FFCE48;
 }
 
 #toast-container {
