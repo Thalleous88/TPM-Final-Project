@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = passwordInput.value.trim();
 
         if (!groupName) {
-            alert("Please fill in the Group Name.");
+            showToast("Group Name cannot be empty");
             return false;
         }
         if (!password) {
-            alert("Please fill in the Password.");
+            showToast("Password cannot be empty");
             return false;
         }
         return true;
@@ -37,3 +37,23 @@ document.addEventListener("DOMContentLoaded", function () {
             : '<i class="fas fa-eye-slash"></i>';
     });
 });
+
+function showToast(message) {
+    const toastContainer = document.getElementById("toast-container");
+  
+    // Membuat elemen toast
+    const toast = document.createElement("div");
+    toast.className = "toast";
+  
+    // Tambahkan icon dan pesan ke toast
+    toast.innerHTML = `
+        <span class="icon">❗</span>
+        <span>${message}</span>
+    `;
+  
+    toastContainer.appendChild(toast);
+  
+    setTimeout(() => {
+        toast.remove();
+    }, 3500); 
+  }
