@@ -102,7 +102,7 @@ passwordInput.addEventListener("input", () => {
 nextButton.addEventListener("click", (e) => {
   e.preventDefault();
   if (form.checkValidity() && validateForm()) {
-      window.location.href = "register_lomba2.html";
+      window.location.href = "register_leader1.html";
   } else {
       form.reportValidity(); 
   }
