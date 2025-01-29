@@ -35,10 +35,10 @@ function showToast(message, success = false) {
         toast.remove();
     }, 3500);
 }
-document.getElementById("next-button").addEventListener("click", (e) => {
+document.getElementById("register-button").addEventListener("click", (e) => {
     e.preventDefault(); 
     if (validateForm()) {
-        window.location.href = "register_lomba4.html";
+        window.location.href = "login.html";
     }
 });
 
@@ -46,5 +46,5 @@ const backButton = document.getElementById("back-button");
 
 backButton.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "register_lomba2.html";
+    window.location.href = "register_new_member1.html";
 });

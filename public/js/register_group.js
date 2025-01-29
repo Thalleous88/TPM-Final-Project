@@ -102,7 +102,7 @@ passwordInput.addEventListener("input", () => {
 nextButton.addEventListener("click", (e) => {
   e.preventDefault();
   if (form.checkValidity() && validateForm()) {
-      window.location.href = "register_lomba2.html";
+      window.location.href = "register_leader1.html";
   } else {
       form.reportValidity(); 
   }
@@ -111,10 +111,11 @@ nextButton.addEventListener("click", (e) => {
 function showToast(message) {
   const toastContainer = document.getElementById("toast-container");
 
-  // elemen toast
+  // Membuat elemen toast
   const toast = document.createElement("div");
   toast.className = "toast";
 
+  // Tambahkan icon dan pesan ke toast
   toast.innerHTML = `
       <span class="icon">❗</span>
       <span>${message}</span>
@@ -124,6 +125,6 @@ function showToast(message) {
 
   setTimeout(() => {
       toast.remove();
-  }, 3500);
+  }, 3500); 
 }
 

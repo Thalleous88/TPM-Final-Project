@@ -18,7 +18,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
-        <link rel="stylesheet" href="register_lomba2.css" />
+        <link rel="stylesheet" href="register_leader1.css" />
     </head>
     <body>
         <div class="header">
@@ -173,6 +173,6 @@
                 </div>
             </div>
         </div>
-        <script src="register_lomba2.js"></script>
+        <script src="register_leader1.js"></script>
     </body>
 </html>

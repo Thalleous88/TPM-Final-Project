@@ -53,13 +53,13 @@ function validateForm() {
 nextButton.addEventListener("click", (e) => {
     e.preventDefault();
     if (validateForm()) {
-        window.location.href = "register_lomba3.html";
+        window.location.href = "register_member12.html";
     }
 });
 
 backButton.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "register_lomba1.html";
+    window.location.href = "register_leader2.html";
 });
 
 function showToast(message) {
