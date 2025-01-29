@@ -71,7 +71,7 @@
                 </div>
                     <div class="login-button">
                         <button>
-                            <a href="{{ route('getParticipantAdmin') }}"> LOG IN </a>
+                            <a href="{{ route('getParticipantAdmin') }}" style="text-decoration: none; color: black"> LOG IN </a>
                         </button>
                     </div>
                     <div class="footer">
