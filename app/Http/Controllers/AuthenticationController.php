@@ -129,7 +129,10 @@ class AuthenticationController extends Controller
 
         $admin = Group::where('group_name', $request->input('group_name'))->first();
 
-        if ($admin && Hash::check($request->input('password'), $admin->password)) {
+        if ($admin && 
+            Hash::check($request->input('password'), $admin->password) &&
+            $admin->is_admin == true
+            ) {
             $request->session()->regenerate();
             Cookie::queue('admin_id', $admin->id);
             return redirect('/admin/dashboard');
