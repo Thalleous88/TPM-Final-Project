@@ -41,7 +41,7 @@
                 </h2>
             </div>
             <div class="content">
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data>
                     @csrf
                     <div class="form-group">
                         <div class="form-container">
