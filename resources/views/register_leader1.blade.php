@@ -18,12 +18,13 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
-        <link rel="stylesheet" href="register_member11.css" />
+        <link rel="stylesheet" href="{{ asset('css/register_leader1.css') }}">
+        <script src="{{ asset('js/register_leader1.js') }}"></script>
     </head>
     <body>
         <div class="header">
             <img
-                src="assets/technoscape_logo.png"
+                src="{{ asset('/landingpage_assets/technoscape_logo.png') }}"
                 alt="TechnoScape Logo"
                 class="logo"
                 width="50"
@@ -37,14 +38,13 @@
                 <h2>Group Registration
                     <div class="close-button-container">
                         <a href="landingpage.html">
-                            <img src="assets/close.png" alt="Close" />
+                            <img src="{{ asset('assets/close.png') }}" alt="Close" />
                         </a>
                     </div>
                 </h2>
             </div>
             <div class="content">
                 <div class="sidebar">
-                    <p class="member-number">Member 1</p>
                     <div class="step active" id="step1">
                         <div class="circle">1</div>
                         <div class="text">Group Information</div>
@@ -54,7 +54,7 @@
                         <div class="circle">2</div>
                         <div class="text">Leader Information</div>
                     </div>
-                    <div class="step active" id="step3">
+                    <div class="step inactive" id="step3">
                         <div class="line"></div>
                         <div class="circle">3</div>
                         <div class="text">Member Information</div>
@@ -159,7 +159,7 @@
                                     </button>
                                 </div>
                                 <div class="next-button">
-                                    <button id="next-button">
+                                    <button id="next-button" type="button" class="submit-button"onclick="window.location.href='{{ route('getLeaderPage2') }}'">
                                         NEXT
                                         <span class="material-icons circle-icon"
                                             >arrow_forward</span
@@ -174,6 +174,5 @@
                 </div>
             </div>
         </div>
-        <script src="register_member11.js"></script>
     </body>
 </html>

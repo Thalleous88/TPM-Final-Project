@@ -12,149 +12,171 @@ use Illuminate\Support\Facades\Log;
 
 class AuthenticationController extends Controller
 {
-    // Render the registration form
     public function getRegister()
     {
+        session()->forget(['group_id', 'leader_data', 'member1_data', 'member2_data']);
         return view('register');
     }
 
-    // Handle registration logic
     public function register(Request $request)
     {
-        // Common validation rules
-        $rules = [
-            'name' => 'required',
-            'email' => ['required', 'email', 'unique:participants'],
-            'password' => 'required|min:8',
-            'group_name' => 'required',
-            'status' => 'required|in:binusian,non-binusian',
-            'wa_number' => 'required',
-            'line_id' => 'required',
-            'github_id' => 'required',
-            'birth_place' => 'required',
-            'birth_date' => 'required|date',
-            'cv' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ];
-
-        // Additional validation based on status
-        if ($request->status === 'binusian') {
-            $rules['binusian_flazz_card'] = 'required|image|mimes:jpeg,png,jpg|max:2048';
-        } elseif ($request->status === 'non-binusian') {
-            $rules['non_binusian_card'] = 'required|image|mimes:jpeg,png,jpg|max:2048';
-        }
-
-        $validated = $request->validate($rules);
-
-        // Save participant data
-        Participant::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'group_name' => $validated['group_name'],
-            'status' => $validated['status'],
-            'wa_number' => $validated['wa_number'],
-            'line_id' => $validated['line_id'],
-            'github_id' => $validated['github_id'],
-            'birth_place' => $validated['birth_place'],
-            'birth_date' => $validated['birth_date'],
-            'cv' => $request->file('cv')->store('uploads', 'public'),
-            'binusian_flazz_card' => $request->status === 'binusian' ? $request->file('binusian_flazz_card')->store('uploads', 'public') : null,
-            'non_binusian_card' => $request->status === 'non-binusian' ? $request->file('non_binusian_card')->store('uploads', 'public') : null,
-        ]);
-
-        return redirect('/welcome')->with('success', 'Registration successful!');
-    }
-
-    public function getRegisterAdmin()
-    {
-        return view('admin_register'); 
-    }
-
-    // Admin registration
-    public function registerAdmin(Request $request)
-    {   
         $validated = $request->validate([
             'group_name' => 'required|unique:groups',
             'password' => 'required|min:8',
+            'confirm-password' => 'required|same:password',
+            'status' => 'required|in:binusian,non-binusian',
         ]);
 
-        Group::create([
+        $group = Group::create([
             'group_name' => $validated['group_name'],
             'password' => Hash::make($validated['password']),
         ]);
 
-        return redirect('/admin/login')->with('success', 'Admin registration successful!');
+        session(['group_id' => $group->id]);
+
+        return redirect()->route('getLeaderPage1');
     }
 
-
-    // Render the login form
-    public function getLogin()
+    public function getLeaderPage1()
     {
-        return view('login');
+        return view('register_leader1');
     }
 
-    // Handle login logic
-    public function login(Request $request)
+    public function getLeaderPage2()
     {
-        $credentials = $request->validate([
+        return view('register_leader2');
+    }
+
+    public function storeLeaderPage1(Request $request)
+    {
+        $validated = $request->validate([
             'name' => 'required',
-            'password' => 'required',
+            'email' => 'required|email|unique:participants',
+            'wa_number' => 'required',
+            'line_id' => 'nullable',
+            'github_id' => 'nullable',
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
         ]);
 
-        $group = Group::where('group_name', $request->input('name'))->first();
+        session(['leader_data' => $validated]);
 
-        if ($group && Hash::check($request->input('password'), $group->password)) {
-            $request->session()->regenerate();
-            Cookie::queue('group_id', $group->id);
-            return redirect('/');
-        }
-
-        return back()->withErrors([
-            'login_error' => 'Group with this name was not found on our records.',
-        ])->onlyInput('name');
+        return redirect()->route('getLeaderPage2');
     }
 
-    public function getLoginAdmin()
+    public function storeLeaderPage2(Request $request)
     {
-        return view('admin_login');
-    }
-
-    // Admin login
-    public function loginAdmin(Request $request)
-    {   
-        $credentials = $request->validate([
-            'group_name' => 'required',
-            'password' => 'required',
+        $validated = $request->validate([
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
+            'cv' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
 
-        $admin = Group::where('group_name', $request->input('group_name'))->first();
-
-        if ($admin && 
-            Hash::check($request->input('password'), $admin->password) &&
-            $admin->is_admin == true
-            ) {
-            $request->session()->regenerate();
-            Cookie::queue('admin_id', $admin->id);
-            return redirect('/admin/dashboard');
+        $status = session('status');
+        if ($status === 'binusian') {
+            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
+        } else {
+            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
         }
 
-        return back()->withErrors([
-            'login_error' => 'Invalid admin credentials.',
-        ])->onlyInput('group_name');
+        $group_id = session('group_id');
+        if (!$group_id) {
+            return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
+        }
+
+        Participant::create(array_merge(session('leader_data'), $validated, ['group_id' => $group_id]));
+
+        return redirect()->route('getMember1Page1');
     }
 
-    // Handle logout logic
-    public function logout(Request $request)
+    public function getMember1Page1()
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('success', 'Logged out successfully!');
+        return view('register_member1');
     }
 
-    public function getParticipantAdmin()
+    public function getMember1Page2()
     {
-        return view('admin_participant'); 
+        return view('register_member2');
+    }
+
+    public function storeMember1Page1(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:participants',
+            'wa_number' => 'required',
+            'line_id' => 'nullable',
+            'github_id' => 'nullable',
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
+        ]);
+
+        session(['member1_data' => $validated]);
+
+        return redirect()->route('getMember1Page2');
+    }
+
+    public function storeMember1Page2(Request $request)
+    {
+        $validated = $request->validate([
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
+            'cv' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+        ]);
+        
+        $status = session('status');
+        if ($status === 'binusian') {
+            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
+        } else {
+            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
+        }
+
+        $group_id = session('group_id');
+        Participant::create(array_merge(session('member1_data'), $validated, ['group_id' => $group_id]));
+
+        return redirect()->route('getMember2Page1');
+    }
+
+    public function getMember2Page1()
+    {
+        return view('register_new_member1');
+    }
+
+    public function getMember2Page2()
+    {
+        return view('register_new_member2');
+    }
+
+    public function storeMember2Page1(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:participants',
+            'wa_number' => 'required',
+            'line_id' => 'nullable',
+            'github_id' => 'nullable',
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
+        ]);
+
+        session(['member2_data' => $validated]);
+
+        return redirect()->route('getMember2Page2');
+    }
+
+    public function storeMember2Page2(Request $request)
+    {
+        $validated = $request->validate([
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
+            'cv' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+        ]);
+
+        $group_id = session('group_id');
+        Participant::create(array_merge(session('member2_data'), $validated, ['group_id' => $group_id]));
+
+        session()->forget(['group_id', 'leader_data', 'member1_data', 'member2_data']);
+
+        return redirect('/landingpage')->with('success', 'Registration successful!');
     }
 }

@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->foreignId('group_id')->references('id')->on('groups')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('status');
+            $table->string('status'); // 'binusian' or 'non-binusian'
             $table->string('wa_number');
             $table->string('line_id');
             $table->string('github_id');
             $table->string('birth_place');
             $table->date('birth_date');
-            $table->string('binusian_flazz_card')->nullable();
-            $table->string('cv')->nullable();
-            $table->string('non_binusian_card')->nullable();
-            $table->boolean('is_leader');
+            $table->string('binusian_flazz_card')->nullable(); // Binusian users only
+            $table->string('cv')->nullable(); // Binusian users only
+            $table->string('non_binusian_card')->nullable(); // Non-binusian users only
+            $table->boolean('is_leader'); // True if the participant is a group leader
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('participant');
+        Schema::dropIfExists('participants');
     }
 };

@@ -19,12 +19,13 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-        <link rel="stylesheet" href="register_leader2.css" />
+        <link rel="stylesheet" href="{{ asset('css/register_leader2.css') }}">
+        <script src="{{ asset('js/register_leader2.js') }}"></script>
     </head>
     <body>
         <div class="header">
             <img
-                src="assets/technoscape_logo.png"
+                src="{{ asset('/landingpage_assets/technoscape_logo.png') }}"
                 alt="TechnoScape logo"
                 width="50"
                 height="50"
@@ -37,7 +38,7 @@
                     Group Registration
                     <div class="close-button-container">
                         <a href="landingpage.html">
-                            <img src="assets/close.png" alt="Close" />
+                            <img src="{{ asset('assets/close.png') }}" alt="Close" />
                         </a>
                     </div>
                 </h2>
@@ -111,7 +112,7 @@
                                 </button>
                             </div>
                             <div class="next-button">
-                                <button id="next-button">
+                                <button id="next-button" type="button" class="submit-button"onclick="window.location.href='{{ route('getMemberPage1') }}'">
                                     NEXT
                                     <span class="material-icons circle-icon"
                                         >arrow_forward</span
@@ -122,6 +123,5 @@
                 </div>
             </div>
         </div>
-        <script src="register_leader2.js"></script>
     </body>
 </html>
