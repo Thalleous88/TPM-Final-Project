@@ -10,7 +10,7 @@ class Group extends Model
     protected $fillable = [
         "group_name",
         "password",
-        'is_admin'
+        "is_admin"
     ];
 
     public function participants(): HasMany {

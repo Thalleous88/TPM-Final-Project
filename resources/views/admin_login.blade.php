@@ -42,6 +42,11 @@
                 </h2>
             </div>
             <div class="content">
+            @if ($errors->has('login_error'))
+                <p>{{ $errors->first('login_error') }}</p>
+            @endif
+            <form action="{{ route('loginAdmin') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group">
                 <div class="form-container">
                     <div class="form-row">
@@ -50,8 +55,9 @@
                                 ><i class="fas fa-users"></i> Group Name</label
                             >
                             <input
+                                name="group_name"
                                 type="text"
-                                id="group-name"
+                                id="group_name"
                                 placeholder="Enter group name"
                             />
                         </div>
@@ -62,6 +68,7 @@
                                 ><i class="fas fa-lock"></i> Password</label
                             >
                             <input
+                                name="password"
                                 type="password"
                                 id="password"
                                 placeholder="Enter password"
@@ -70,15 +77,15 @@
                     </div>
                 </div>
                     <div class="login-button">
-                        <button>
-                            <a href="{{ route('getParticipantAdmin') }}" style="text-decoration: none; color: black"> LOG IN </a>
+                        <button type="submit">
+                            LOG IN
                         </button>
                     </div>
                     <div class="footer">
                         Don't have an admin account? <a href="{{ route('getRegisterAdmin') }}">Make Account</a>
-                      </div>
-
+                    </div>
                 </div>
+            </form>
             </div>
         </div>
     </body>

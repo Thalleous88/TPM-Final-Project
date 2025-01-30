@@ -22,7 +22,7 @@ Route::controller(AuthenticationController::class)->group(function() {
     Route::post('/admin/register', 'registerAdmin')->name('registerAdmin');
     Route::get('/admin/login', 'getLoginAdmin')->name('getLoginAdmin');
     Route::post('/admin/login', 'loginAdmin')->name('loginAdmin');
-    Route::get('/admin/participant', 'getParticipantAdmin')->name('getParticipantAdmin');
-    Route::post('/admin/participant', 'participantAdmin')->name('participantAdmin');
-    Route::get('/test', 'viewPage')->name('viewPage')->middleware();
+    Route::post('/admin/logout', 'logoutAdmin')->name('logoutAdmin');
+    Route::get('/admin/participant', 'getParticipantAdmin')->name('getParticipantAdmin')->middleware('adminauth');
+    Route::post('/admin/participant', 'participantAdmin')->name('participantAdmin')->middleware('adminauth');;
 });

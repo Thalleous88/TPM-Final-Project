@@ -129,13 +129,11 @@ class AuthenticationController extends Controller
 
         $admin = Group::where('group_name', $request->input('group_name'))->first();
 
-        if ($admin && 
-            Hash::check($request->input('password'), $admin->password) &&
-            $admin->is_admin == true
+        if ($admin && Hash::check($request->input('password'), $admin->password)
             ) {
             $request->session()->regenerate();
-            Cookie::queue('admin_id', $admin->id);
-            return redirect('/admin/dashboard');
+            Cookie::queue('group_id', $admin->id);
+            return redirect('/admin/participant');
         }
 
         return back()->withErrors([
@@ -144,7 +142,7 @@ class AuthenticationController extends Controller
     }
 
     public function getRegisterAdmin()
-    {
+    {   
         return view('admin_register'); 
     }
 
@@ -163,5 +161,15 @@ class AuthenticationController extends Controller
         ]);
 
         return redirect('/admin/login')->with('success', 'Admin registration successful!');
+    }
+
+    public function logoutAdmin(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        Cookie::queue(Cookie::forget('group_id'));
+
+        return redirect('/admin/login')->with('success', 'Logged out successfully!');
     }
 }
