@@ -24,4 +24,5 @@ Route::controller(AuthenticationController::class)->group(function() {
     Route::post('/admin/login', 'loginAdmin')->name('loginAdmin');
     Route::get('/admin/participant', 'getParticipantAdmin')->name('getParticipantAdmin');
     Route::post('/admin/participant', 'participantAdmin')->name('participantAdmin');
+    Route::get('/test', 'viewPage')->name('viewPage')->middleware();
 });

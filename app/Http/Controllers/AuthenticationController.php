@@ -65,27 +65,6 @@ class AuthenticationController extends Controller
         return redirect('/welcome')->with('success', 'Registration successful!');
     }
 
-    public function getRegisterAdmin()
-    {
-        return view('admin_register'); 
-    }
-
-    // Admin registration
-    public function registerAdmin(Request $request)
-    {   
-        $validated = $request->validate([
-            'group_name' => 'required|unique:groups',
-            'password' => 'required|min:8',
-        ]);
-
-        Group::create([
-            'group_name' => $validated['group_name'],
-            'password' => Hash::make($validated['password']),
-        ]);
-
-        return redirect('/admin/login')->with('success', 'Admin registration successful!');
-    }
-
 
     // Render the login form
     public function getLogin()
@@ -114,12 +93,33 @@ class AuthenticationController extends Controller
         ])->onlyInput('name');
     }
 
+    // Handle logout logic
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Logged out successfully!');
+    }
+
+    public function getParticipantAdmin()
+    {
+        return view('admin_participant'); 
+    }
+
+    public function viewPage()
+    {
+        return view('admin_participant');
+    }
+
+    // Admin Logics
+
     public function getLoginAdmin()
     {
         return view('admin_login');
     }
 
-    // Admin login
     public function loginAdmin(Request $request)
     {   
         $credentials = $request->validate([
@@ -143,18 +143,25 @@ class AuthenticationController extends Controller
         ])->onlyInput('group_name');
     }
 
-    // Handle logout logic
-    public function logout(Request $request)
+    public function getRegisterAdmin()
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('success', 'Logged out successfully!');
+        return view('admin_register'); 
     }
 
-    public function getParticipantAdmin()
-    {
-        return view('admin_participant'); 
+    // Admin registration
+    public function registerAdmin(Request $request)
+    {   
+        $validated = $request->validate([
+            'group_name' => 'required|unique:groups',
+            'password' => 'required|min:8',
+        ]);
+
+        Group::create([
+            'group_name' => $validated['group_name'],
+            'password' => Hash::make($validated['password']),
+            'is_admin' => true
+        ]);
+
+        return redirect('/admin/login')->with('success', 'Admin registration successful!');
     }
 }
