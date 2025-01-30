@@ -70,6 +70,17 @@ body {
     border-radius: 10px 10px 5px 5px;
 }
 
+.close-button {
+    border: none;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.close-button:hover {
+    cursor: pointer;
+}
+
 .close-button-container {
     display: flex;
     position: absolute;

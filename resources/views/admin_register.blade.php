@@ -20,7 +20,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
         <link rel="stylesheet" href="{{ asset('css/admin_register.css') }}" />
-        <script src="{{ asset('js/admin_participant.js') }}"></script>
+        <script src="{{ asset('js/admin_register.js') }}"></script>
     </head>
     <body>
         <div class="header">
@@ -42,40 +42,45 @@
                 </h2>
             </div>
             <div class="content">
-                <div class="form-group">
-                    <div class="form-container">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="group-name"
-                                    ><i class="fas fa-users"></i> Group
-                                    Name</label
-                                >
-                                <input
-                                    type="group-name"
-                                    id="group-name"
-                                    placeholder="Enter group name"
-                                />
+                <form action="{{ route('registerAdmin') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <div class="form-container">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="group_name"
+                                        ><i class="fas fa-users"></i> Group
+                                        Name</label
+                                    >
+                                    <input
+                                        name="group_name"
+                                        type="group-name"
+                                        id="group_name"
+                                        placeholder="Enter group name"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="password"
-                                    ><i class="fas fa-lock"></i> Password</label
-                                >
-                                <input
-                                    type="password"
-                                    id="password"
-                                    placeholder="Enter password"
-                                />
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password"
+                                        ><i class="fas fa-lock"></i> Password</label
+                                    >
+                                    <input
+                                        name="password"
+                                        type="password"
+                                        id="password"
+                                        placeholder="Enter password"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div class="register-button">
-                            <button>
-                                <a href="{{ route('getLoginAdmin') }}">REGISTER</a>
-                            </button>
+                            <div class="register-button">
+                                <button>
+                                    REGISTER
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </body>

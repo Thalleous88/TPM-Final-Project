@@ -38,7 +38,12 @@
                 <h2>
                     ADMIN PANEL
                     <div class="close-button-container">
-                        <img src="{{ asset('assets/close.png') }}" alt="Close" />
+                        <form action="{{ route('logoutAdmin') }}" method="POST" style="display: flex;">
+                            @csrf
+                            <button class="close-button" type="submit">
+                                <img src="{{ asset('assets/close.png') }}" alt="Close" />
+                            </button>
+                        </form>
                     </div>
                 </h2>
             </div>

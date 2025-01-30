@@ -166,6 +166,12 @@ class AuthenticationController extends Controller
 
     public function storeMember2Page2(Request $request)
     {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        Cookie::queue(Cookie::forget('group_id'));
+
+        return redirect('/admin/login')->with('success', 'Logged out successfully!');
         $validated = $request->validate([
             'birth_place' => 'required',
             'birth_date' => 'required|date',
