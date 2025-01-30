@@ -112,7 +112,7 @@
                                 </button>
                             </div>
                             <div class="next-button">
-                                <button id="next-button" type="button" class="submit-button"onclick="window.location.href='{{ route('getMemberPage1') }}'">
+                                <button id="next-button" type="button" class="submit-button">
                                     NEXT
                                     <span class="material-icons circle-icon"
                                         >arrow_forward</span

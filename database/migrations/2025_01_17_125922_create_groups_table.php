@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('group_name')->unique();
             $table->string('password');
-            $table->boolean('is_admin');
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }

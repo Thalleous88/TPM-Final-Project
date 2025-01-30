@@ -18,7 +18,8 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         />
-        <link rel="stylesheet" href="register_new_member1.css" />
+        <link rel="stylesheet" href="{{ asset('css/register_new_member1.css') }}">
+        <script src="{{ asset('js/register_new_member1.js') }}"></script>
     </head>
     <body>
         <div class="header">

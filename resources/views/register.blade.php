@@ -161,7 +161,7 @@
                         </div>
                         <div class="form-group">
                             <div class="next-button">
-                                <button id="next-button" type="submit" class="submit-button"onclick="window.location.href='{{ route('getLeaderPage1') }}'">
+                                <button id="next-button" type="submit" class="submit-button">
                                     NEXT
                                     <span class="material-icons circle-icon">arrow_forward</span>
                                 </button>

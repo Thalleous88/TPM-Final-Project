@@ -68,108 +68,121 @@
                     </div>
                 </div>
                 <div class="form-container">
-                    <form id="registration-form">
+                    <form id="registration-form" action="{{ route('storeLeaderPage1') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="full-name"
-                                    ><i class="fas fa-user"></i> Full
-                                    Name</label
-                                >
+                                <label for="full-name"><i class="fas fa-user"></i> Full Name</label>
                                 <input
-                                    type="full-name"
+                                    type="text"
+                                    name="full_name"
                                     id="full-name"
+                                    value="{{ old('full_name') }}"
                                     placeholder="Enter your full name"
                                 />
+                                @error('full_name')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="github-id"
-                                    ><i class="fab fa-github"></i> GitHub/GitLab
-                                    ID</label
-                                >
+                                <label for="github-id"><i class="fab fa-github"></i> GitHub/GitLab ID</label>
                                 <input
-                                    type="github-id"
+                                    type="text"
+                                    name="github_id"
                                     id="github-id"
+                                    value="{{ old('github_id') }}"
                                     placeholder="Enter your GitHub/GitLab ID"
                                 />
+                                @error('github_id')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email"
-                                    ><i class="fas fa-envelope"></i>
-                                    Email</label
-                                >
+                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
                                 <input
                                     type="email"
+                                    name="email"
                                     id="email"
+                                    value="{{ old('email') }}"
                                     placeholder="Enter your email"
                                 />
+                                @error('email')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="birth-place"
-                                    ><i class="fas fa-map-marker-alt"></i> Birth
-                                    Place</label
-                                >
+                                <label for="birth-place"><i class="fas fa-map-marker-alt"></i> Birth Place</label>
                                 <input
-                                    type="birth-place"
+                                    type="text"
+                                    name="birth_place"
                                     id="birth-place"
+                                    value="{{ old('birth_place') }}"
                                     placeholder="Enter your birth place"
                                 />
+                                @error('birth_place')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="whatsapp"
-                                    ><i class="fas fa-phone"></i> WhatsApp
-                                    Number</label
-                                >
+                                <label for="whatsapp"><i class="fas fa-phone"></i> WhatsApp Number</label>
                                 <input
-                                    type="no-wa"
+                                    type="text"
+                                    name="whatsapp"
                                     id="whatsapp"
+                                    value="{{ old('whatsapp') }}"
                                     placeholder="Enter your WhatsApp number"
                                 />
+                                @error('whatsapp')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="birth-date"
-                                    ><i class="fas fa-calendar-alt"></i> Birth
-                                    Date</label
-                                >
-                                <input type="date" id="birth-date"/>
+                                <label for="birth-date"><i class="fas fa-calendar-alt"></i> Birth Date</label>
+                                <input type="date" name="birth_date" id="birth-date" value="{{ old('birth_date') }}" />
+                                @error('birth_date')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="line-id"
-                                    ><i class="fab fa-line"></i> LINE ID</label
-                                >
+                                <label for="line-id"><i class="fab fa-line"></i> LINE ID</label>
                                 <input
-                                    type="line-id"
+                                    type="text"
+                                    name="line_id"
                                     id="line-id"
+                                    value="{{ old('line_id') }}"
                                     placeholder="Enter your LINE ID"
                                 />
+                                @error('line_id')
+                                    <div class="error-message">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <div class="form-group">
-                                <div class="form-row">
+
+                            <div class="form-row">
                                 <div class="back-button">
                                     <button>
-                                        <span class="material-icons circle-icon"
-                                            >arrow_back</span
-                                        >
-                                        BACK
+                                        <span class="material-icons circle-icon">arrow_back</span> BACK
                                     </button>
                                 </div>
                                 <div class="next-button">
-                                    <button id="next-button" type="button" class="submit-button"onclick="window.location.href='{{ route('getLeaderPage2') }}'">
+                                    <button id="next-button" type="submit" class="submit-button">
                                         NEXT
-                                        <span class="material-icons circle-icon"
-                                            >arrow_forward</span
-                                        >
+                                        <span class="material-icons circle-icon">arrow_forward</span>
                                     </button>
                                 </div>
                             </div>
-                            </div>
                         </div>
                     </form>
+
                     <div id="toast-container"></div>
                 </div>
             </div>

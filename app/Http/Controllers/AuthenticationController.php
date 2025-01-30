@@ -23,16 +23,17 @@ class AuthenticationController extends Controller
         $validated = $request->validate([
             'group_name' => 'required|unique:groups',
             'password' => 'required|min:8',
-            'confirm-password' => 'required|same:password',
             'status' => 'required|in:binusian,non-binusian',
         ]);
 
         $group = Group::create([
             'group_name' => $validated['group_name'],
             'password' => Hash::make($validated['password']),
+            'is_admin' => false
         ]);
 
         session(['group_id' => $group->id]);
+        session(['status' => $validated['status']]);
 
         return redirect()->route('getLeaderPage1');
     }
@@ -60,6 +61,10 @@ class AuthenticationController extends Controller
         ]);
 
         session(['leader_data' => $validated]);
+        $group_id = session('group_id');
+        if (!$group_id) {
+            return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
+        }
 
         return redirect()->route('getLeaderPage2');
     }
@@ -67,13 +72,11 @@ class AuthenticationController extends Controller
     public function storeLeaderPage2(Request $request)
     {
         $validated = $request->validate([
-            'birth_place' => 'required',
-            'birth_date' => 'required|date',
             'cv' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
 
         $status = session('status');
-        if ($status === 'binusian') {
+        if ($status === 'binusian' && $request->hasFile('binusian_flazz_card')) {
             $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
         } else {
             $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
@@ -112,6 +115,10 @@ class AuthenticationController extends Controller
         ]);
 
         session(['member1_data' => $validated]);
+        $group_id = session('group_id');
+        if (!$group_id) {
+            return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
+        }
 
         return redirect()->route('getMember1Page2');
     }
@@ -119,19 +126,20 @@ class AuthenticationController extends Controller
     public function storeMember1Page2(Request $request)
     {
         $validated = $request->validate([
-            'birth_place' => 'required',
-            'birth_date' => 'required|date',
             'cv' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
         
         $status = session('status');
-        if ($status === 'binusian') {
+        if ($status === 'binusian' && $request->hasFile('binusian_flazz_card')) {
             $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
         } else {
             $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
         }
 
         $group_id = session('group_id');
+        if (!$group_id) {
+            return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
+        }
         Participant::create(array_merge(session('member1_data'), $validated, ['group_id' => $group_id]));
 
         return redirect()->route('getMember2Page1');
@@ -160,29 +168,35 @@ class AuthenticationController extends Controller
         ]);
 
         session(['member2_data' => $validated]);
+        $group_id = session('group_id');
+        if (!$group_id) {
+            return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
+        }
 
         return redirect()->route('getMember2Page2');
     }
 
     public function storeMember2Page2(Request $request)
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        Cookie::queue(Cookie::forget('group_id'));
-
-        return redirect('/admin/login')->with('success', 'Logged out successfully!');
         $validated = $request->validate([
-            'birth_place' => 'required',
-            'birth_date' => 'required|date',
             'cv' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
 
+        $status = session('status');
+        if ($status === 'binusian' && $request->hasFile('binusian_flazz_card')) {
+            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
+        } else {
+            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
+        }
+
         $group_id = session('group_id');
+        if (!$group_id) {
+            return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
+        }
         Participant::create(array_merge(session('member2_data'), $validated, ['group_id' => $group_id]));
 
         session()->forget(['group_id', 'leader_data', 'member1_data', 'member2_data']);
 
-        return redirect('/landingpage')->with('success', 'Registration successful!');
+        return redirect()->route('landingpage')->with('success', 'Registration successful!');
     }
 }
