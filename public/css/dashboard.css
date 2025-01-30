@@ -1,0 +1,482 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #cce7ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img {
+    margin-top: 13px;
+    width: 60px;
+    height: 50px;
+}
+
+.header h1 {
+    font-size: 30px;
+    font-style: italic;
+}
+
+.header h1 span {
+    font-weight: 800;
+}
+
+.title-container {
+    background: linear-gradient(
+        to left,
+        #fffcc8,
+        #d4ffc8,
+        #d7ecff,
+        #e9d7ff,
+        #ffcccd
+    );
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 25px;
+    position: relative;
+}
+
+.title-container h2 {
+    font-weight: 800;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 10px 10px 5px 5px;
+}
+
+.close-button-container {
+    display: flex;
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    border: 1.5px solid black; 
+    border-radius: 10px; 
+    padding: 4px; 
+    background-color: white;
+    cursor: pointer;
+}
+
+.close-button-container img {
+    width: 25px; 
+    height: 25px;
+    object-fit: cover; 
+    border: 1px dashed black; 
+    padding: 5px; 
+}
+
+.close-button-container a {
+    display: inline-flex; 
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 0.25px dashed black;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    background: #ffffff;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px; 
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px; 
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    box-sizing: border-box; 
+    margin-bottom: 7px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-section label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 7px;
+}
+
+button {
+    border: 1px solid #0072D0;
+    color: #0072D0;
+    background-color: #E9F4FF;
+    border-radius: 20px;
+    box-sizing: border-box; 
+    margin-bottom: 7px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.view-cv, .view-idcard {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+input[readonly] {
+    background-color: #E0E0E0;
+    color: #525252;
+    cursor: not-allowed;
+    border: 1px solid #525252;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.editable-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.editable-input input {
+    width: 100%;
+    padding-right: 30px;
+    background-color: #FFCBCB;
+    border: 1px solid black;
+    cursor: not-allowed;
+    color:black;
+}
+
+.editable-input input:focus {
+    background-color: #fff;
+    cursor: text;
+}
+
+.edit-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.edit-icon:hover {
+    color: #333;
+}
+
+.timeline {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFDD9;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline h3 {
+    margin: 0 0 10px 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 16px;
+}
+
+.timeline h4 {
+    margin: 23px 0 10px 0;
+    display: flex;
+    font-size: 12px;
+}
+
+.timeline ul {
+    padding: 0;
+    list-style-type: none;
+    margin-top: -17px; 
+    margin-left: 44px;
+}
+
+ul li a {
+    color: #A4A4A4;
+    font-size: 12px; 
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 10px;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    border: 2px solid #666;
+}
+
+.step.active .circle {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.step.inactive .circle {
+    background-color: #A4A4A4;
+    border-color: #A4A4A4;
+    color: #D9D9D9;
+}
+
+.step.active .text{
+    color: #33BB0E;
+}
+
+.line {
+    width: 2px;
+    height: 20px;
+    background-color: #ccc;
+    position: absolute;
+    left: 9px; 
+    top: -20px;
+}
+
+.text {
+    font-size: 14px;
+    color: #9F9E9E;
+}
+
+.step:first-child .line {
+    display: none;
+}
+
+.contact h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.divider {
+    width: 2px;
+    height: 60px;
+    background-color: #A4A4A4; 
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info i {
+    margin-right: 8px;
+    color: #333;
+}
+
+.logout {
+    display: flex;
+    width: 283%;
+    padding-right: 10px; 
+}
+
+.logout button {
+    margin-left: auto;
+    font-weight: 800;
+    padding: 10px 20px;
+    background-color: #FF787A;
+    color: black;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    justify-content: flex-end;
+}
+
+.logout button:hover {
+    background-color: #E78C8C;
+    border-color: #E78C8C;
+}
+
+.logout button a {
+    color: black; 
+    text-decoration: none; 
+}
+
+.logout button a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 751px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content-logout {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 319px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content-logout img.warning-icon {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.modal-content-logout h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: #CBCBCB;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.btn-cancel:hover {
+    background-color: #bbb;
+}
+
+.btn-confirm {
+    background-color: #FF787A;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    flex: 1;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.btn-confirm:hover {
+    background-color: #e57373;
+}
