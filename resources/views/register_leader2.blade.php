@@ -14,22 +14,16 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
         />
-
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
         <link rel="stylesheet" href="{{ asset('css/register_leader2.css') }}">
-        <script src="{{ asset('js/register_leader2.js') }}"></script>
+        <script src="{{ asset('js/register_leader2.js') }}" defer></script>
     </head>
     <body>
         <div class="header">
-            <img
-                src="{{ asset('/landingpage_assets/technoscape_logo.png') }}"
-                alt="TechnoScape logo"
-                width="50"
-                height="50"
-            />
+            <img src="{{ asset('/landingpage_assets/technoscape_logo.png') }}" alt="TechnoScape logo" width="50" height="50" />
             <h1>Techno<span>Scape</span></h1>
         </div>
         <div class="container">
@@ -37,7 +31,7 @@
                 <h2>
                     Group Registration
                     <div class="close-button-container">
-                        <a href="landingpage.html">
+                        <a href="{{ route('landingpage') }}">
                             <img src="{{ asset('assets/close.png') }}" alt="Close" />
                         </a>
                     </div>
@@ -69,57 +63,55 @@
                 </div>
                 <div class="form-container">
                     <div id="toast-container"></div>
-                    <form id="registration-form">
-                    <div class="form-row">
-                        <div class="upload-section">
-                            <h3>Upload Flazz Card Binusian</h3>
-                            <div class="upload-box" id="uploadBoxBinusian">
-                                <i class="fas fa-upload"></i>
-                                <input type="file" id="fileBinusian">  
+                    <form action="{{ route('storeLeaderPage2') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-row">
+                            <div class="upload-section">
+                                <h3>Upload Flazz Card Binusian</h3>
+                                <div class="upload-box" id="uploadBoxBinusian">
+                                    <i class="fas fa-upload"></i>
+                                    <input type="file" name="binusian_flazz_card" accept=".pdf,.jpg,.jpeg,.png">  
+                                </div>
+                                <p class="file-type-note">*pdf, jpg, jpeg, png</p>
+                                <p class="file-type-note">*Khusus <span class="highlight">Binusian</span></p>
                             </div>
-                            <p class="file-type-note">*pdf, jpg, jpeg, png</p>
-                            <p class="file-type-note">*Khusus <span class="highlight">Binusian</span></p>
-                        </div>
-                        <div class="upload-section">
-                            <h3>Upload CV</h3>
-                            <div class="upload-box" id="uploadBoxCV">
-                                <i class="fas fa-upload"></i>
-                                <input type="file" id="fileCV">
+                            <div class="upload-section">
+                                <h3>Upload CV</h3>
+                                <div class="upload-box" id="uploadBoxCV">
+                                    <i class="fas fa-upload"></i>
+                                    <input type="file" name="cv" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                                <p class="file-type-note">*pdf, jpg, jpeg, png</p>
                             </div>
-                            <p class="file-type-note">*pdf, jpg, jpeg, png</p>
                         </div>
-                    </div>
-                    <div class="form-row">
-                    <div class="upload-section">
-                        <h3>Upload ID Card Non-binusian</h3>
-                        <div class="upload-box" id="uploadBox">
-                            <i class="fas fa-upload"></i>
-                            <input type="file" id="fileNonBinusian">
-                        </div>
-                        <p class="file-type-note">*pdf, jpg, jpeg, png</p>
-                        <p class="file-type-note">*Khusus <span class="highlight">Non-binusian</span></p>
-                    </div>
-                </form>
-                </div>
-                    <div class="form-group">
-                        <div class="button-group">
-                            <div class="back-button">
-                                <button id="back-button">
-                                    <span class="material-icons circle-icon"
-                                        >arrow_back</span
-                                    >
-                                    BACK
-                                </button>
+                        <div class="form-row">
+                            <div class="upload-section">
+                                <h3>Upload ID Card Non-binusian</h3>
+                                <div class="upload-box" id="uploadBox">
+                                    <i class="fas fa-upload"></i>
+                                    <input type="file" name="non_binusian_card" accept=".pdf,.jpg,.jpeg,.png">  
+                                </div>
+                                <p class="file-type-note">*pdf, jpg, jpeg, png</p>
+                                <p class="file-type-note">*Khusus <span class="highlight">Non-binusian</span></p>
                             </div>
-                            <div class="next-button">
-                                <button id="next-button" type="button" class="submit-button">
-                                    NEXT
-                                    <span class="material-icons circle-icon"
-                                        >arrow_forward</span
-                                    >
-                                </button>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <div class="button-group">
+                                <div class="back-button">
+                                    <a href="{{ route('getLeaderPage1') }}" class="button">
+                                        <span class="material-icons circle-icon">arrow_back</span>
+                                        BACK
+                                    </a>
+                                </div>
+                                <div class="next-button">
+                                    <button type="submit" class="submit-button">
+                                        NEXT
+                                        <span class="material-icons circle-icon">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
