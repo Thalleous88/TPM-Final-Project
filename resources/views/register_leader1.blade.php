@@ -37,7 +37,7 @@
             <div class="title-container">
                 <h2>Group Registration
                     <div class="close-button-container">
-                        <a href="landingpage.html">
+                        <a href="/">
                             <img src="{{ asset('assets/close.png') }}" alt="Close" />
                         </a>
                     </div>
@@ -169,7 +169,7 @@
 
                             <div class="form-row">
                                 <div class="back-button">
-                                    <button>
+                                    <button type="button" onclick="window.location.href='/register';" >
                                         <span class="material-icons circle-icon">arrow_back</span> BACK
                                     </button>
                                 </div>

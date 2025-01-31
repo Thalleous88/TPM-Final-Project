@@ -31,7 +31,7 @@
                 <h2>
                     Group Registration
                     <div class="close-button-container">
-                        <a href="{{ route('landingpage') }}">
+                        <a href="/">
                             <img src="{{ asset('assets/close.png') }}" alt="Close" />
                         </a>
                     </div>
@@ -98,10 +98,10 @@
                         <div class="form-group">
                             <div class="button-group">
                                 <div class="back-button">
-                                    <a href="{{ route('getLeaderPage1') }}" class="button">
+                                    <button type="button" onclick="window.location.href='/register/leader1';">
                                         <span class="material-icons circle-icon">arrow_back</span>
-                                        BACK
-                                    </a>
+                                            BACK
+                                    </button>
                                 </div>
                                 <div class="next-button">
                                     <button type="submit" class="submit-button">

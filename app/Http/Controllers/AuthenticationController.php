@@ -84,10 +84,14 @@ class AuthenticationController extends Controller
 
         $group_id = session('group_id');
         if (!$group_id) {
+            Log::error('Session group_id is missing before inserting participant.');
             return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
         }
 
-        Participant::create(array_merge(session('leader_data'), $validated, ['group_id' => $group_id]));
+        Participant::create(array_merge(session('leader_data'), $validated, [
+            'group_id' => $group_id,
+            'is_leader' => true, // Explicitly set is_leader to true for leader
+        ]));
 
         return redirect()->route('getMember1Page1');
     }
@@ -140,7 +144,10 @@ class AuthenticationController extends Controller
         if (!$group_id) {
             return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
         }
-        Participant::create(array_merge(session('member1_data'), $validated, ['group_id' => $group_id]));
+        Participant::create(array_merge(session('member1_data'), $validated, [
+            'group_id' => $group_id,
+            'is_leader' => false, // Set is_leader to false for member
+        ]));
 
         return redirect()->route('getMember2Page1');
     }
@@ -193,7 +200,11 @@ class AuthenticationController extends Controller
         if (!$group_id) {
             return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
         }
-        Participant::create(array_merge(session('member2_data'), $validated, ['group_id' => $group_id]));
+        
+        Participant::create(array_merge(session('member2_data'), $validated, [
+            'group_id' => $group_id,
+            'is_leader' => false, // Set is_leader to false for member
+        ]));
 
         session()->forget(['group_id', 'leader_data', 'member1_data', 'member2_data']);
 
