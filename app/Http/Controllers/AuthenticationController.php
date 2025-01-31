@@ -223,6 +223,7 @@ class AuthenticationController extends Controller
         $request->session()->regenerate();
         Cookie::queue('group_id', $admin->id);
         return redirect('/admin/participant');
+        }
     }
 
     public function getRegisterAdmin()
