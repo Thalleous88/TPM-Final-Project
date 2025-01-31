@@ -112,14 +112,12 @@
                             <div class="circle">4</div>
                             <div class="text">Competition Day</div>
                         </div>
+                        
                     </div>
-                </div>
-
-                <ul>
-                    <li><a href="https://CompetitionDay" target="_blank">https://CompetitionDay</a></li>
-                </ul>
-
-                <div class="contact">
+                    <ul>
+                        <li><a href="https://CompetitionDay" target="_blank">https://CompetitionDay</a></li>
+                    </ul>
+                    <div class="contact">
                     <h4>Contact Person</h4>
                     <div class="contact-container">
 
@@ -149,11 +147,15 @@
                             </div>
                         </div>
 
-                        <div class="logout">
-                            <button id="logout-btn">LOG OUT</button>
-                        </div>
                     </div>
                 </div>
+                </div>
+
+                <div class="logout">
+                    <button id="logout-btn">LOG OUT</button>
+                </div>
+
+            
 
 
                     
