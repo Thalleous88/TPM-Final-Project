@@ -200,7 +200,7 @@ class AuthenticationController extends Controller
         if (!$group_id) {
             return redirect()->route('getRegister')->withErrors(['error' => 'Session expired, please restart registration.']);
         }
-        
+
         Participant::create(array_merge(session('member2_data'), $validated, [
             'group_id' => $group_id,
             'is_leader' => false, // Set is_leader to false for member
@@ -208,7 +208,7 @@ class AuthenticationController extends Controller
 
         session()->forget(['group_id', 'leader_data', 'member1_data', 'member2_data']);
 
-        return redirect()->route('landingpage')->with('success', 'Registration successful!');
+        return redirect()->route('login')->with('success', 'Registration successful!');
     }
 
     public function getLogin()
@@ -228,12 +228,34 @@ class AuthenticationController extends Controller
         if ($group && Hash::check($request->input('password'), $group->password)) {
             $request->session()->regenerate();
             Cookie::queue('group_id', $group->id);
-            return redirect('/');
+            return redirect('/dashboard');
         }
 
         return back()->withErrors([
             'login_error' => 'Group with this name was not found on our records.',
         ])->onlyInput('name');
+    }
+
+    public function getUserDashboard()
+    {
+        $group_id = Cookie::get('group_id');
+        
+        if (!$group_id) {
+            return redirect()->route('login')->withErrors(['error' => 'Please login first']);
+        }
+
+        $group = Group::with(['participants' => function($query) {
+            $query->where('is_leader', true);
+        }])->find($group_id);
+
+        if (!$group) {
+            return redirect()->route('login')->withErrors(['error' => 'Group not found']);
+        }
+
+        return view('dashboard', [
+            'group' => $group,
+            'leader' => $group->participants->first()
+        ]);
     }
 
     public function getLoginAdmin()

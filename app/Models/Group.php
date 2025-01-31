@@ -14,6 +14,6 @@ class Group extends Model
     ];
 
     public function participants(): HasMany {
-        return $this->hasMany(Participant::class, 'id');
+        return $this->hasMany(Participant::class, 'group_id');
     }
 }
