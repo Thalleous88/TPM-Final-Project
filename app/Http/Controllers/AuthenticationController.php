@@ -60,6 +60,7 @@ class AuthenticationController extends Controller
             'birth_date' => 'required|date',
         ]);
 
+        $validated['is_leader'] = true;
         session(['leader_data' => $validated]);
         $group_id = session('group_id');
         if (!$group_id) {
@@ -199,8 +200,6 @@ class AuthenticationController extends Controller
 
         return redirect()->route('landingpage')->with('success', 'Registration successful!');
     }
-<<<<<<< HEAD
-=======
 
     public function getLogin()
     {
@@ -283,5 +282,4 @@ class AuthenticationController extends Controller
         Cookie::queue(Cookie::forget('group_id'));
         return redirect('/admin/login')->with('success', 'Logged out successfully!');
     }
->>>>>>> 01327d65e51c7cb799c204391e08b428bfd805c7
 }
