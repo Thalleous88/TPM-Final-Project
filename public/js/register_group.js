@@ -99,14 +99,6 @@ passwordInput.addEventListener("input", () => {
     validatePassword(passwordInput.value);
 });
 
-nextButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (form.checkValidity() && validateForm()) {
-      window.location.href = "register_leader1.html";
-  } else {
-      form.reportValidity(); 
-  }
-});
 
 function showToast(message) {
   const toastContainer = document.getElementById("toast-container");

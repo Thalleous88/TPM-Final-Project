@@ -50,17 +50,9 @@ function validateForm() {
     return errors.length === 0;
 }
 
-nextButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-        window.location.href = "register_member11.html";
-    }
-});
 
-backButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "register_group.html";
-});
+
+
 
 function showToast(message) {
     const toastContainer = document.getElementById("toast-container");

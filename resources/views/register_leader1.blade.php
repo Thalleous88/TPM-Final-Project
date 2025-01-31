@@ -76,12 +76,12 @@
                                 <label for="full-name"><i class="fas fa-user"></i> Full Name</label>
                                 <input
                                     type="text"
-                                    name="full_name"
+                                    name="name"
                                     id="full-name"
-                                    value="{{ old('full_name') }}"
+                                    value="{{ old('name') }}"
                                     placeholder="Enter your full name"
                                 />
-                                @error('full_name')
+                                @error('name')
                                     <div class="error-message">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -134,12 +134,12 @@
                                 <label for="whatsapp"><i class="fas fa-phone"></i> WhatsApp Number</label>
                                 <input
                                     type="text"
-                                    name="whatsapp"
+                                    name="wa_number"
                                     id="whatsapp"
-                                    value="{{ old('whatsapp') }}"
+                                    value="{{ old('wa_number') }}"
                                     placeholder="Enter your WhatsApp number"
                                 />
-                                @error('whatsapp')
+                                @error('wa_number')
                                     <div class="error-message">{{ $message }}</div>
                                 @enderror
                             </div>
