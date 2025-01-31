@@ -201,6 +201,30 @@ class AuthenticationController extends Controller
         return redirect()->route('landingpage')->with('success', 'Registration successful!');
     }
 
+    public function getLogin()
+    {
+        return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+        ]);
+
+        $group = Group::where('group_name', $request->input('name'))->first();
+
+        if ($group && Hash::check($request->input('password'), $group->password)) {
+            $request->session()->regenerate();
+            Cookie::queue('group_id', $group->id);
+            return redirect('/');
+        }
+
+        return back()->withErrors([
+            'login_error' => 'Group with this name was not found on our records.',
+        ])->onlyInput('name');
+    }
 
     public function getLoginAdmin()
     {
