@@ -60,7 +60,6 @@ class AuthenticationController extends Controller
             'birth_date' => 'required|date',
         ]);
 
-        $validated['is_leader'] = true;
         session(['leader_data' => $validated]);
         $group_id = session('group_id');
         if (!$group_id) {
