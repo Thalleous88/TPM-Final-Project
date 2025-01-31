@@ -199,4 +199,89 @@ class AuthenticationController extends Controller
 
         return redirect()->route('landingpage')->with('success', 'Registration successful!');
     }
+<<<<<<< HEAD
+=======
+
+    public function getLogin()
+    {
+        return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+        ]);
+
+        $group = Group::where('group_name', $request->input('name'))->first();
+
+        if ($group && Hash::check($request->input('password'), $group->password)) {
+            $request->session()->regenerate();
+            Cookie::queue('group_id', $group->id);
+            return redirect('/');
+        }
+
+        return back()->withErrors([
+            'login_error' => 'Group with this name was not found on our records.',
+        ])->onlyInput('name');
+    }
+
+    public function getLoginAdmin()
+    {
+        return view('admin_login');
+    }
+
+    // Admin login
+
+    public function loginAdmin(Request $request)
+    {   
+        $credentials = $request->validate([
+            'group_name' => 'required',
+            'password' => 'required',
+        ]);
+
+        $admin = Group::where('group_name', $request->input('group_name'))->first();
+
+        if ($admin && Hash::check($request->input('password'), $admin->password)
+        ) {
+        $request->session()->regenerate();
+        Cookie::queue('group_id', $admin->id);
+        return redirect('/admin/participant');
+        }
+    }
+
+    public function getRegisterAdmin()
+    {
+        return view('admin_register');
+    }
+
+    public function getParticipantAdmin()
+    {
+        return view('admin_participant'); 
+    }
+    // Admin registration
+    public function registerAdmin(Request $request)
+    {   
+        $validated = $request->validate([
+            'group_name' => 'required|unique:groups',
+            'password' => 'required|min:8',
+        ]);
+        Group::create([
+            'group_name' => $validated['group_name'],
+            'password' => Hash::make($validated['password']),
+            'is_admin' => true
+        ]);
+        return redirect('/admin/login')->with('success', 'Admin registration successful!');
+    }
+
+    public function logoutAdmin(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        Cookie::queue(Cookie::forget('group_id'));
+        return redirect('/admin/login')->with('success', 'Logged out successfully!');
+    }
+>>>>>>> 01327d65e51c7cb799c204391e08b428bfd805c7
 }
