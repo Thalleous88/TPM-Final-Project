@@ -257,17 +257,737 @@
         </div>
     </section>
 
+
     <section id="faq">
+            <div class="faq-header">
+                <h1>FAQ</h1>
+            </div>
 
-    </section>
+            <div class="faq-container">
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Apakah Hackathon 8.0 gratis?
+                            <span class="arrow"
+                                ><img
+                                    src="landingpage_assets/dropdown.png"
+                                    alt="arrow"
+                            /></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Hackathon 8.0 adalah acara
+                                <strong>berbayar</strong>. Setiap tim harus
+                                melakukan pembayaran sesuai periode:
+                                <br />
+                                <strong
+                                    >1. Early Bird (30 Mei - 3 Juni
+                                    2025)</strong
+                                >
+                                <br />
+                                Binusian: Rp. 190.000, Non-Binusian: Rp. 210.000
+                                <br />
+                                <strong
+                                    >2. Harga Biasa (4 Juni - 30 Juni
+                                    2025)</strong
+                                ><br />
+                                Binusian: Rp. 200.000, Non-Binusian: Rp. 225.000
+                            </p>
+                        </div>
+                    </div>
 
-    <section id="media-partner"></section>
-    <section id="contact-us"></section>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Kapan batas waktu untuk pendaftaran?
+                            <span class="arrow"
+                                ><img
+                                    src="landingpage_assets/dropdown.png"
+                                    alt="arrow"
+                            /></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Batas waktu pendaftaran adalah
+                                <strong>30 Juni 2025</strong>.
+                            </p>
+                        </div>
+                    </div>
 
-    <!-- Footer -->
-    <footer>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Bisakah bergabung lebih dari 1 tim?
+                            <span class="arrow"
+                                ><img
+                                    src="landingpage_assets/dropdown.png"
+                                    alt="arrow"
+                            /></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <strong>Tidak</strong>, peserta hanya
+                                diperbolehkan
+                                <strong>bergabung dalam satu tim</strong>. Jika
+                                lebih dari satu tim, peserta tidak akan
+                                terdaftar sebagai peserta Hackathon 8.0.
+                            </p>
+                        </div>
+                    </div>
 
-    </footer>
-    
-</body>
+                    <!-- Show More FAQ -->
+                    <div class="faq-hidden">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Apa saja persyaratan untuk berpartisipasi di
+                                Hackathon 8.0?
+                                <span class="arrow"
+                                    ><img
+                                        src="landingpage_assets/dropdown.png"
+                                        alt="arrow"
+                                /></span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Peserta hanya dapat bergabung dalam
+                                    <strong>1 tim (maksimal 4 orang)</strong>.
+                                    <br /><br />
+                                    Peserta adalah warga negara indonesia
+                                    berusia <strong>18-25 tahun</strong>.
+                                    <br /><br />
+                                    Peserta harus menyerahkan dokumen yang
+                                    dibutuhkan pada halaman pendaftaran
+                                    Hackathon, seperti: <br />
+                                    1. <strong>CV</strong> (
+                                    <i>Curriculum Vitae</i> ) <br />
+                                    2. <strong>Portfolio</strong> (tidak wajib)
+                                    <br />
+                                    3. <strong>Non-Binusian</strong>: KTP
+                                    (KTP/SIM/dll) <br />
+                                    4. <strong>Binusian</strong>: Kartu Binusian
+                                    (Kartu Flazz)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Jika saya tidak memiliki dasar pemrograman atau
+                                desain, bolehkah saya berpartisipasi?
+                                <span class="arrow"
+                                    ><img
+                                        src="landingpage_assets/dropdown.png"
+                                        alt="arrow"
+                                /></span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Peserta tanpa latar bekanag pemrograman atau
+                                    dasar coding dan desain
+                                    <strong
+                                        >diperbolehkan untuk
+                                        berpartisipasi</strong
+                                    >
+                                    pada acara Hackathon. Namun, akan ada
+                                    seleksi untuk menentukan tim yang akan
+                                    lolos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Jika saya tidak memenuhi syarat atau tidak lolos
+                                seleksi, bagaimana dengan biaya pendaftarannya?
+                                <span class="arrow"
+                                    ><img
+                                        src="landingpage_assets/dropdown.png"
+                                        alt="arrow"
+                                /></span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Kami akan mengembalikan
+                                    <strong>100%</strong> biaya pendaftaran,
+                                    jika peserta tidak memenuhi syarat atau
+                                    tidak lolos seleksi untuk acara ini.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="faq-more">Show More</p>
+
+            <!-- Decorative Elements -->
+            <div class="faq-decorations">
+                <img
+                    src="landingpage_assets/questionmark.png"
+                    class="decoration questionmark"
+                    alt="questionmark decoration"
+                />
+                <img
+                    src="landingpage_assets/sparkle1.png"
+                    class="decoration sparkle1"
+                    alt="sparkle decoration"
+                />
+                <img
+                    src="landingpage_assets/smileysparkle.png"
+                    class="decoration smileysparkle"
+                    alt="smile decoration"
+                />
+            </div>
+        </section>
+
+        <section id="media-partner">
+            <div class="media-header">
+                <img
+                    src="landingpage_assets/ribbon.png"
+                    alt="ribbon background"
+                    class="ribbon"
+                />
+                <h1 class="media-title">MEDIA PARTNER</h1>
+            </div>
+
+            <div class="media-container">
+                <!-- Baris 1 -> Bergerak ke kanan -->
+                <div class="logo-track track-1">
+                    <div class="logos">
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kuatbaca.png"
+                                    alt="KuatBaca"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/digitalskola.png"
+                                    alt="Digital Skola"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kerja.png"
+                                    alt="1Kerja"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/codingstudio.png"
+                                    alt="Coding Studio"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/himti.png"
+                                    alt="HIMTI Binus"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/po.png"
+                                    alt="PO Binus"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logos">
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kuatbaca.png"
+                                    alt="KuatBaca"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/digitalskola.png"
+                                    alt="Digital Skola"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kerja.png"
+                                    alt="1Kerja"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/codingstudio.png"
+                                    alt="Coding Studio"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/himti.png"
+                                    alt="HIMTI Binus"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/po.png"
+                                    alt="PO Binus"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baris 2 - Bergerak ke kiri -->
+                <div class="logo-track track-2">
+                    <div class="logos">
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kuatbaca.png"
+                                    alt="KuatBaca"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/digitalskola.png"
+                                    alt="Digital Skola"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kerja.png"
+                                    alt="1Kerja"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/codingstudio.png"
+                                    alt="Coding Studio"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/himti.png"
+                                    alt="HIMTI Binus"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/po.png"
+                                    alt="PO Binus"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="logos">
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kuatbaca.png"
+                                    alt="KuatBaca"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/digitalskola.png"
+                                    alt="Digital Skola"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/kerja.png"
+                                    alt="1Kerja"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/codingstudio.png"
+                                    alt="Coding Studio"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/himti.png"
+                                    alt="HIMTI Binus"
+                                />
+                            </div>
+                        </div>
+                        <div class="logo-box">
+                            <div class="logo-header">
+                                <div class="browser-buttons">
+                                    <div class="yellow"></div>
+                                    <div class="red"></div>
+                                    <div class="green"></div>
+                                </div>
+                            </div>
+                            <div class="logo-img">
+                                <img
+                                    src="landingpage_assets/medpar-logo/po.png"
+                                    alt="PO Binus"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-us">
+            <div class="contact-header">
+                <h1 class="contact-title">CONTACT US</h1>
+            </div>
+            <div class="contact-container">
+                <form id="contactForm">
+                    <div class="form-left">
+                        <div class="input-group">
+                            <label for="name">
+                                <img
+                                    src="landingpage_assets/name.png"
+                                    alt="name icon"
+                                />
+                                Nama</label
+                            >
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="email"
+                                ><img
+                                    src="landingpage_assets/email.png"
+                                    alt="email icon"
+                                />
+                                Email</label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                            />
+                        </div>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+
+                    <div class="form-right">
+                        <div class="input-group">
+                            <label for="subject"
+                                ><img
+                                    src="landingpage_assets/subject.png"
+                                    alt="subject icon"
+                                />
+                                Subject</label
+                            >
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                required
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="message"
+                                ><img
+                                    src="landingpage_assets/message.png"
+                                    alt="message icon"
+                                />
+                                Message</label
+                            >
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                            ></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <img
+                        src="landingpage_assets/done.png"
+                        alt="done"
+                        class="popup-icon"
+                    />
+                    <p>Message has been sent!</p>
+                </div>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div class="contactus-decorations">
+                <img
+                    src="landingpage_assets/tag-contactus.png"
+                    class="decoration tag"
+                    alt="tag decoration"
+                />
+                <img
+                    src="landingpage_assets/sparkle-contactus.png"
+                    class="decoration sparkle"
+                    alt="sparkle decoration"
+                />
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <p>Powered and Organized by</p>
+                    <img
+                        src="landingpage_assets/footer/footerlogo.png"
+                        alt="BNCC Logo"
+                        class="bncc-logo"
+                    />
+                </div>
+
+                <div class="footer-right">
+                    <p class="find-us">Find Us</p>
+                    <div class="social-icons">
+                        <a
+                            href="https://www.instagram.com/bnccbinus/"
+                            target="_blank"
+                            ><img
+                                src="landingpage_assets/footer/insta.png"
+                                alt="Instagram"
+                        /></a>
+                        <a href="https://bncc.net/#contact" target="_blank"
+                            ><img
+                                src="landingpage_assets/footer/email.png"
+                                alt="Email"
+                        /></a>
+                        <a href="https://twitter.com/BNCC_Binus" target="_blank"
+                            ><img
+                                src="landingpage_assets/footer/twitter.png"
+                                alt="Twitter"
+                        /></a>
+                        <a
+                            href="https://www.facebook.com/bina.nusantara.computer.club/"
+                            target="_blank"
+                            ><img
+                                src="landingpage_assets/footer/facebook.png"
+                                alt="Facebook"
+                        /></a>
+                        <a
+                            href="https://www.linkedin.com/company/bina-nusantara-computer-club/mycompany/"
+                            target="_blank"
+                            ><img
+                                src="landingpage_assets/footer/linkedin.png"
+                                alt="LinkedIn"
+                        /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://www.binus.edu/privacy-policy/" target="_blank">Privacy Policy</a>  | 
+                <a href="https://en.wikipedia.org/wiki/Terms_of_service" target="_blank">Terms of Service</a>
+            </div>
+
+            <p class="footer-bottom">
+                All Rights Reserved BNCC 2024 © Bina Nusantara Computer Club
+            </p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+            emailjs.init("YOUR_PUBLIC_KEY"); // Ganti pakai Public Key dari EmailJS
+        </script>
+        <script src="landingpage.js"></script>
+    </body>
 </html>

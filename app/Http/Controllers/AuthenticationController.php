@@ -78,9 +78,9 @@ class AuthenticationController extends Controller
 
         $status = session('status');
         if ($status === 'binusian' && $request->hasFile('binusian_flazz_card')) {
-            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
+            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('public/cards');
         } else {
-            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
+            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('public/cards');
         }
 
         $group_id = session('group_id');
@@ -136,9 +136,9 @@ class AuthenticationController extends Controller
         
         $status = session('status');
         if ($status === 'binusian' && $request->hasFile('binusian_flazz_card')) {
-            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
+            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('public/cards');
         } else {
-            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
+            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('public/cards');
         }
 
         $group_id = session('group_id');
@@ -192,9 +192,9 @@ class AuthenticationController extends Controller
 
         $status = session('status');
         if ($status === 'binusian' && $request->hasFile('binusian_flazz_card')) {
-            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('cards');
+            $validated['binusian_flazz_card'] = $request->file('binusian_flazz_card')->store('public/cards');
         } else {
-            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('cards');
+            $validated['non_binusian_card'] = $request->file('non_binusian_card')->store('public/cards');
         }
 
         $group_id = session('group_id');

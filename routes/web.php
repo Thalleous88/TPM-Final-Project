@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Middleware\AdminAuth;
 
 Route::get('/', function () {
     return view('landingpage');
@@ -45,6 +46,6 @@ Route::controller(AuthenticationController::class)->group(function() {
     Route::get('/admin/login', 'getLoginAdmin')->name('getLoginAdmin');
     Route::post('/admin/login', 'loginAdmin')->name('loginAdmin');
     Route::post('/admin/logout', 'logoutAdmin')->name('logoutAdmin');
-    Route::get('/admin/participant', 'getParticipantAdmin')->name('getParticipantAdmin')->middleware('adminauth');
-    Route::post('/admin/participant', 'participantAdmin')->name('participantAdmin')->middleware('adminauth');
+    Route::get('/admin/participant', 'getParticipantAdmin')->name('getParticipantAdmin')->middleware(AdminAuth::class);
+    Route::post('/admin/participant', 'participantAdmin')->name('participantAdmin')->middleware(AdminAuth::class);
 });
