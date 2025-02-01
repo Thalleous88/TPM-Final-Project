@@ -20,6 +20,9 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
         <link rel="stylesheet" href="{{ asset('css/admin_participant.css') }}" />
+        <script>
+            const groupsData = @json($groups); // Convert Laravel collection to JSON for JavaScript
+        </script>
         <script type="module" src="{{ asset('js/admin_participant.js') }}"></script>
         <script src="{{ asset('js/admin_participant.js') }}"></script>
     </head>

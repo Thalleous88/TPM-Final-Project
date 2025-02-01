@@ -170,7 +170,7 @@
                         <h2>Are you sure you want to log out?</h2>
                         <div class="modal-buttons">
                             <button id="cancel-logout" class="btn-cancel">No</button>
-                            <button id="confirm-logout" class="btn-confirm">Yes</button>
+                            <button onclick="window.location.href='/login';" id="confirm-logout" class="btn-confirm">Yes</button>
                         </div>
                     </div>
                 </div>

@@ -27,9 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutModal.style.display = "none";
     });
 
-    confirmLogout.addEventListener("click", function () {
-        window.location.href = "login.html"; 
-    });
+    
 
     // edit group name
     editIcon.addEventListener("click", function () {

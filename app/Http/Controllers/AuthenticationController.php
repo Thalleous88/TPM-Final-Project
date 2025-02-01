@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class AuthenticationController extends Controller
 {
@@ -287,10 +288,13 @@ class AuthenticationController extends Controller
         return view('admin_register');
     }
 
-    public function getParticipantAdmin()
-    {
-        return view('admin_participant'); 
+   
+
+    public function getParticipantAdmin() {
+        $groups = Group::all(); // Fetch groups with participant count
+        return view('admin_participant', compact('groups'));
     }
+
     // Admin registration
     public function registerAdmin(Request $request)
     {   
@@ -312,6 +316,70 @@ class AuthenticationController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         Cookie::queue(Cookie::forget('group_id'));
-        return redirect('/admin/login')->with('success', 'Logged out successfully!');
+        return redirect('loginAdmin')->with('success', 'Logged out successfully!');
+    }
+
+    public function participantEdit($group_id)
+    {
+        // Fetch participants for the group
+        $participants = Participant::where('group_id', $group_id)
+        ->where('is_leader', 1)
+        ->get();
+
+        // Pass the $group_id and $participants to the view
+        return view('edit_team', [
+            'group_id' => $group_id,
+            'participants' => $participants,
+        ]);
+    }
+
+    public function participantUpdate(Request $request, $group_id)
+    {
+        // Fetch participants for the group
+        $participants = Participant::where('group_id', $group_id)
+            ->where('is_leader', 1)
+            ->get();
+    
+        if ($participants->isEmpty()) {
+            return redirect()->route('participantEdit', $group_id)->with('error', 'Group not found.');
+        }
+    
+        // Validate the request
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:participants,email,' . $participants->first()->id,
+            'wa_number' => 'required',
+            'line_id' => 'nullable',
+            'github_id' => 'nullable',
+            'birth_place' => 'required',
+            'birth_date' => 'required|date',
+        ]);
+    
+        // Update each participant
+        foreach ($participants as $participant) {
+            $participant->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'wa_number' => $request->wa_number,
+                'line_id' => $request->line_id,
+                'github_id' => $request->github_id,
+                'birth_place' => $request->birth_place,
+                'birth_date' => $request->birth_date,
+            ]);
+        }
+    
+        return redirect()->route('participantAdmin')->with('success', 'Team updated successfully.');
+    }
+
+    public function participantDelete($group_id) {
+        $participants = Participant::find($group_id);
+        
+        if (!$participants) {
+            return redirect()->back()->with('error', 'Group not found.');
+        }
+    
+        $participants->delete();
+    
+        return redirect()->back()->with('success', 'Group deleted successfully.');
     }
 }

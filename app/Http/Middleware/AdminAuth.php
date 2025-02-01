@@ -14,7 +14,7 @@ class AdminAuth
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
+    */
     public function handle(Request $request, Closure $next): Response
     {
         $group_id = $request->cookie('group_id');
@@ -26,4 +26,6 @@ class AdminAuth
         }
         return redirect('/admin/login');
     }
-}
+} 
+
+
