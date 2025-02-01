@@ -19,7 +19,7 @@ class AdminAuth
     {
         $group_id = $request->cookie('group_id');
         if ($group_id) {
-            $group = Group::where('id', 3)->first();
+            $group = Group::where('id', $group_id)->first();
             if ($group->is_admin == true) {
                 return $next($request);
             }

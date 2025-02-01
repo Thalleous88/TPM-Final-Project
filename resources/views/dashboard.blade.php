@@ -84,7 +84,7 @@
                     </button>
 
                     <label for="view-idcard">View ID Card / Flazz Card</label>
-                    <button class="view-idcard" data-idcard="{{  Storage::url('cards/' . ($leader->binusian_flazz_card ?? $leader->non_binusian_card)) }}">
+                    <button class="view-idcard" data-idcard="{{  Storage::url(($leader->binusian_flazz_card ?? $leader->non_binusian_card)) }}">
                         View ID Card
                     </button>
                 </div>
@@ -190,7 +190,7 @@
                 <div id="idcard-modal" class="modal">
                     <div class="modal-content">
                         <span class="close close-idcard">&times;</span>
-                        <img id="idcard-viewer" src="" alt="ID Card" width="100%" />
+                        <img id="idcard-viewer" src="{{  Storage::url( ($leader->binusian_flazz_card ?? $leader->non_binusian_card)) }}" alt="ID Card" width="100%" />
                         <a id="idcard-download" href="" download>
                             <button>Download ID Card</button>
                         </a>
