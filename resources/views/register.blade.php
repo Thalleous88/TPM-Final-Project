@@ -36,7 +36,7 @@
                 <h2>
                     Group Registration
                     <div class="close-button-container">
-                        <a href="landingpage.html">
+                        <a href="/">
                             <img src="{{ asset('assets/close.png') }}" alt="Close" />
                         </a>
                     </div>

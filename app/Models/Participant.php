@@ -10,6 +10,7 @@ class Participant extends Model
     protected $table = 'participants';
 
     protected $fillable = [
+        "group_id",
         "name",
         "email",
         "group_name",

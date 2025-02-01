@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->foreignId('group_id')->references('id')->on('groups')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('status'); // 'binusian' or 'non-binusian'
+            $table->string('status')->default('binusian'); // 'binusian' or 'non-binusian'
             $table->string('wa_number');
             $table->string('line_id');
             $table->string('github_id');
